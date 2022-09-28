@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "712044319473",
+    "project_id": "ogas-driver-app",
+    "storage_bucket": "ogas-driver-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712044319473:android:f01a2a463f4db8dd9e8f50",
+        "android_client_info": {
+          "package_name": "com.example.ogas_driver_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "712044319473-87r2f1ngcgs9ag2up8jqe60iio6ctrlm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ogas_driver_app",
+            "certificate_hash": "e8bc1303b4d1d2cd83fe7bf14688f0fb71b0bed0"
+          }
+        },
+        {
+          "client_id": "712044319473-aencj7v64dhp4hco6opmfggksa3lmemh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ogas_driver_app",
+            "certificate_hash": "e694730acbe8e941180261c674fed49d48ef7559"
+          }
+        },
+        {
+          "client_id": "712044319473-kti59cnh0rsqtflcnmq6ksdgda2de6qu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ogas_driver_app",
+            "certificate_hash": "7c0161f09316ebe2ee0628bac94f306d90e61fd8"
+          }
+        },
+        {
+          "client_id": "712044319473-cvsffl8i9oe78spphlaveiqq7e3mjs9f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuArJSuY_DtQ53SWp249xih1wg4DEK_O8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "712044319473-cvsffl8i9oe78spphlaveiqq7e3mjs9f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
