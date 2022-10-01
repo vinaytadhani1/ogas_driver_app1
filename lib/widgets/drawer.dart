@@ -48,8 +48,10 @@ class _DrawerpageState extends State<Drawerpage> {
     return Padding(
       padding: const EdgeInsets.only(bottom: 50),
       child: ClipRRect(
-        borderRadius: BorderRadius.only(
-          bottomRight: Radius.circular(200),
+        borderRadius: ggvalue == 0 ? BorderRadius.only(
+          bottomRight: Radius.circular(250),
+        ) : BorderRadius.only(
+          bottomLeft: Radius.circular(250),
         ),
         child: Drawer(
           elevation: 2,
@@ -57,10 +59,8 @@ class _DrawerpageState extends State<Drawerpage> {
           child: Column(
             children: [
               Padding(
-                padding: EdgeInsets.only(
-                  top: 35,
-                  left: 5,
-                ),
+                padding: ggvalue == 0 ? EdgeInsets.only(top: 35,left: 5,) :
+                                        EdgeInsets.only(top: 35,right: 5,),
                 child: ListTile(
                   leading: CircleAvatar(
                     radius: 30,
@@ -77,15 +77,16 @@ class _DrawerpageState extends State<Drawerpage> {
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       )),
-                  subtitle: Text("+91 $phone",
-                      style: TextStyle(fontSize: 15, height: 1.8)),
+                  subtitle: Text("+91 $phone",softWrap: true,
+                      style: TextStyle(fontSize: 15, height: 1.8,),
+                  ),
                 ),
               ),
               const Divider(
                 color: ColorConstnt.grey,
               ),
               CustomDrawerList("asset/icons/drawerList_icon/profile.png",
-                  AppLocalizations.of(context)!.profile, () {
+                  'profile'.tr, () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -94,7 +95,7 @@ class _DrawerpageState extends State<Drawerpage> {
                 );
               }),
               CustomDrawerList("asset/icons/drawerList_icon/cart.png",
-                  AppLocalizations.of(context)!.orderHistory, () {
+                  'orderHistory'.tr, () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -103,7 +104,7 @@ class _DrawerpageState extends State<Drawerpage> {
                 );
               }),
               CustomDrawerList("asset/icons/drawerList_icon/language.png",
-                  AppLocalizations.of(context)!.language, () {
+                  'language'.tr, () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -112,7 +113,7 @@ class _DrawerpageState extends State<Drawerpage> {
                 );
               }),
               CustomDrawerList("asset/icons/drawerList_icon/sign_out.png",
-                  AppLocalizations.of(context)!.signOut, () async {
+                  'signOut'.tr, () async {
                 showLoadingDialog(context: context);
                 SharedPreferences pref = await SharedPreferences.getInstance();
                 pref.clear();

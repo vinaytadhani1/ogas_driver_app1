@@ -62,14 +62,14 @@ class _OrderHistoryPageState extends State<OrderHistoryPage> {
   Widget build(BuildContext context) {
     return Background(
       imagename: "asset/icons/drawerList_icon/leftarrow2x.png",
-      text: AppLocalizations.of(context)!.orderHistory,
+      text: 'orderHistory'.tr,
       onTap: () {
         Get.back();
       },
       child: onData == null || onData!.isEmpty
           ? Center(
               child: Text(
-                AppLocalizations.of(context)!.noOrderHistory,
+                'noOrderHistory'.tr,
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
@@ -83,7 +83,7 @@ class _OrderHistoryPageState extends State<OrderHistoryPage> {
               itemBuilder: (c, i) {
                 return OrderCoustomHistory(
                   orderNum:
-                      "# ${AppLocalizations.of(context)!.order} ${onData![i].orderInvoice}",
+                      "# ${'order'.tr} ${onData![i].orderInvoice}",
                   orderDate:
                       '${DateFormat('dd-MM-yyyy').format(onData![i].createdAt!)}',
                   paymentmethod: onData![i].paymentMethod,
@@ -93,7 +93,7 @@ class _OrderHistoryPageState extends State<OrderHistoryPage> {
                   smallQty: "2",
                   largeQty: "1",
                   orderStatus:
-                      "${onData?[i].status == "5" ? AppLocalizations.of(context)!.orderStatus5 : onData?[i].status == "4" ? AppLocalizations.of(context)!.orderStatus4 : onData?[i].status == "0" ? AppLocalizations.of(context)!.orderStatus0 : onData?[i].status == "1" ? AppLocalizations.of(context)!.orderStatus1 : AppLocalizations.of(context)!.orderStatus2}",
+                      "${onData?[i].status == "5" ? 'orderStatus5'.tr : onData?[i].status == "4" ? 'orderStatus4'.tr : onData?[i].status == "0" ? 'orderStatus0'.tr : onData?[i].status == "1" ? 'orderStatus1'.tr : 'orderStatus2'.tr}",
                   color:
                       onData?[i].status == "5" ? Colors.red : Color(0xff4CAF50),
                   orderReason: onData?[i].cancelReason,
@@ -120,7 +120,7 @@ class _OrderHistoryPageState extends State<OrderHistoryPage> {
                                         fontWeight: FontWeight.w600),
                                   ),
                                   Text(
-                                    "${AppLocalizations.of(context)!.qty} : ${onData![i].orderHistory![i2].quantity}",
+                                    "${'qty'.tr} : ${onData![i].orderHistory![i2].quantity}",
                                     style: TextStyle(
                                         fontSize: 15,
                                         color: Color(0xff656565),

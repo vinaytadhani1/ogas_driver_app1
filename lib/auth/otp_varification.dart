@@ -7,6 +7,7 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
 import 'package:ogas_driver_app/Model/apis/pref_string.dart';
 import 'package:ogas_driver_app/auth/name.dart';
@@ -81,7 +82,8 @@ class _OtpVarificationState extends State<OtpVarification> {
           await _auth.signInWithCredential(phoneAuthCredential);
       if (authCredential.user != null) {
         SharedPreferences pref = await SharedPreferences.getInstance();
-
+        // print('---Login---$login');
+        pref.setString(PrefString.loggedIn, 'loggedIn');
         hideLoadingDialog(context: context);
         login == true ? Get.offAll(HomePage()) : Get.offAll(NamePage());
 
@@ -90,13 +92,13 @@ class _OtpVarificationState extends State<OtpVarification> {
           duration: Duration(seconds: 2),
           snackPosition: SnackPosition.TOP,
           messageText: Text(
-            AppLocalizations.of(context)!.verified,
+            'verified'.tr,
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
           ),
         ));
       }
     } on FirebaseAuthException {
-      showMessage(AppLocalizations.of(context)!.invalidOtp);
+      showMessage('invalidOtp'.tr);
     }
   }
 
@@ -105,11 +107,11 @@ class _OtpVarificationState extends State<OtpVarification> {
         context: context,
         builder: (BuildContext builderContext) {
           return AlertDialog(
-            title: Text(AppLocalizations.of(context)!.error),
+            title: Text('error'.tr),
             content: Text(errorMessage),
             actions: [
               TextButton(
-                child: Text(AppLocalizations.of(context)!.ok),
+                child: Text('ok'.tr),
                 onPressed: () async {
                   Navigator.of(builderContext).pop();
                 },
@@ -199,7 +201,7 @@ class _OtpVarificationState extends State<OtpVarification> {
                     Padding(
                       padding: EdgeInsets.all(20.0),
                       child: Text(
-                        AppLocalizations.of(context)!.otpVarification,
+                        'otpVarification'.tr,
                         style: TextStyle(
                             fontSize: 35,
                             fontWeight: FontWeight.bold,
@@ -239,7 +241,7 @@ class _OtpVarificationState extends State<OtpVarification> {
                         ),
                         alignment: Alignment.topCenter,
                         child:
-                            Text(AppLocalizations.of(context)!.verificationText,
+                            Text('verificationText'.tr,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   color: ColorConstnt.grey,
@@ -317,7 +319,7 @@ class _OtpVarificationState extends State<OtpVarification> {
 
                       //     signInWithPhoneAuthCredential(phoneAuthCredential);
                       //   },
-                      //   text: AppLocalizations.of(context)!.submit,
+                      //   text: 'submit'.tr,
                       // ),
                       // SizedBox(height: 10),
                       Center(
@@ -340,7 +342,7 @@ class _OtpVarificationState extends State<OtpVarification> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                AppLocalizations.of(context)!.resendText,
+                                'resendText'.tr,
                                 style: TextStyle(
                                   color: ColorConstnt.grey,
                                   fontSize: 15,
@@ -363,7 +365,7 @@ class _OtpVarificationState extends State<OtpVarification> {
                                   }
                                 },
                                 child: Text(
-                                  AppLocalizations.of(context)!.resendText2,
+                                  'resendText2'.tr,
                                   style: TextStyle(
                                     color: ColorConstnt.black.withOpacity(
                                         timerText == "00 : 00" ? 1 : 0.5),

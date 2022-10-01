@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ogas_driver_app/util/colors.dart';
 
+import '../homescreen/language/language.dart';
+
 class CustomTextField extends StatelessWidget {
   final String? mName;
   final String? hintText;
@@ -35,7 +37,7 @@ class CustomTextField extends StatelessWidget {
             left: 20,
             right: 20,
           ),
-          alignment: Alignment.topLeft,
+          alignment: ggvalue == 0 ?  Alignment.topLeft : Alignment.topRight,
           child: Text(mName ?? "",
               style: TextStyle(
                 color: const Color(0xff212121).withOpacity(0.9),

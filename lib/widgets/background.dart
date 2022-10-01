@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:ogas_driver_app/util/colors.dart';
 
+import '../homescreen/language/language.dart';
+
 class Background extends StatelessWidget {
   final String? text;
   final Widget? child;
@@ -40,13 +42,14 @@ class Background extends StatelessWidget {
                       fit: BoxFit.cover),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 35, left: 20),
+                  padding: const EdgeInsets.only(top: 35, left: 20,right: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       GestureDetector(
                           onTap: onTap,
-                          child: Image.asset(imagename.toString(), scale: 1.5)),
+                          child: ggvalue == 0 ? Image.asset(imagename.toString(), scale: 1.5) 
+                                              : Image.asset(imagename.toString(), scale: 1.5,matchTextDirection: true,)),
                       Container(
                           padding: const EdgeInsets.only(left: 10),
                           width: MediaQuery.of(context).size.width / 1.3,

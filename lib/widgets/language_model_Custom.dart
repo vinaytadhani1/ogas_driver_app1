@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:ogas_driver_app/util/colors.dart';
 
+import '../homescreen/language/language.dart';
+
 class LanguageModel extends StatefulWidget {
   final String? lname;
   final void Function(Object?)? onChanged;
@@ -37,8 +39,8 @@ class _LanguageModelState extends State<LanguageModel> {
     return GestureDetector(
       onTap: widget.onTap,
       child: Container(
-        padding: const EdgeInsets.only(left: 15),
-        alignment: Alignment.centerLeft,
+        padding: const EdgeInsets.only(left: 15 , right: 15),
+        alignment: ggvalue == 0 ?  Alignment.centerLeft : Alignment.centerRight,
         height: widget.height,
         width: widget.width,
         decoration: BoxDecoration(

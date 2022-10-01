@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ogas_driver_app/util/colors.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -85,7 +86,7 @@ class OrderCoustomHistory extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "${AppLocalizations.of(context)!.total} :",
+                      "${'total'.tr} :",
                       style: TextStyle(
                           fontSize: 15,
                           color: Color(0xff656565),
@@ -104,7 +105,7 @@ class OrderCoustomHistory extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "${AppLocalizations.of(context)!.orderDate} :",
+                      "${'orderDate'.tr} :",
                       style: TextStyle(
                           fontSize: 15,
                           color: Color(0xff656565),
@@ -123,7 +124,7 @@ class OrderCoustomHistory extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "${AppLocalizations.of(context)!.deliveredOn} :",
+                      "${'deliveredOn'.tr} :",
                       style: TextStyle(
                           fontSize: 15,
                           color: Color(0xff656565),
@@ -142,7 +143,7 @@ class OrderCoustomHistory extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "${AppLocalizations.of(context)!.paymentMethod} :",
+                      "${'paymentMethod'.tr} :",
                       style: TextStyle(
                           fontSize: 15,
                           color: Color(0xff656565),
@@ -173,7 +174,7 @@ class OrderCoustomHistory extends StatelessWidget {
             children: [
               SizedBox(width: 10),
               Text(
-                "${AppLocalizations.of(context)!.orderstatus} : ",
+                "${'orderstatus'.tr} : ",
                 style: TextStyle(
                   fontSize: 15,
                   color: Colors.black,
@@ -195,7 +196,7 @@ class OrderCoustomHistory extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        "${AppLocalizations.of(context)!.reason} :",
+                        "${'reason'.tr} :",
                         style: TextStyle(
                             fontSize: 12,
                             color: Colors.black,

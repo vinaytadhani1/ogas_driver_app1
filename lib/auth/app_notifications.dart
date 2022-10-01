@@ -100,10 +100,10 @@ class AppNotificationHandler {
     FirebaseMessaging.instance
         .getInitialMessage()
         .then((RemoteMessage? message) async {
-      if (message!.data.isEmpty) {
-        Navigator.pushNamed(context!, '/home');
-      } else {
-        final mapData = message.data;
+      // if (message!.data.isEmpty) {
+        // Navigator.pushNamed(context!, '/home');
+      // } else {
+      //   final mapData = message.data;
         // Navigator.of(context!).push(MaterialPageRoute(builder: (context) {
         //   return ChattingScreen(
         //     userImg: mapData['userImg'],
@@ -112,7 +112,7 @@ class AppNotificationHandler {
         //     token: mapData['token'],
         //   );
         // }));
-      }
+      // }
     });
   }
 

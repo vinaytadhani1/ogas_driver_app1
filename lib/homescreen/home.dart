@@ -153,7 +153,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             onTap: () {
               scaffoldd.currentState!.openDrawer();
             },
-            text: AppLocalizations.of(context)!.orderdetails,
+            text: 'orderdetails'.tr,
             child: Column(
               children: [
                 SizedBox(
@@ -164,7 +164,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     tabs: [
                       Tab(
                         child: Text(
-                          "${AppLocalizations.of(context)!.newtext} (${data.length})",
+                          "${'newtext'.tr} (${data.length})",
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
@@ -173,7 +173,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       ),
                       Tab(
                         child: Text(
-                          "${AppLocalizations.of(context)!.ongoing} (${onData.length})",
+                          "${'ongoing'.tr} (${onData.length})",
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
@@ -193,7 +193,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         child: data == null || data.isEmpty
                             ? Center(
                                 child: Text(
-                                  AppLocalizations.of(context)!.noNew,
+                                  'noNew'.tr,
                                   style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w600,
@@ -203,7 +203,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             : ListView.builder(
                                 itemCount: data.length,
                                 shrinkWrap: true,
-                                physics: AlwaysScrollableScrollPhysics(),
+                                physics: BouncingScrollPhysics(),
                                 itemBuilder: (BuildContext context, i) {
                                   if (currentPostion != null) {
                                     double totalDistance = this.totalDistance +
@@ -237,7 +237,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   }
                                   return OrderListCard(
                                     orderNumber:
-                                        "${AppLocalizations.of(context)!.newOrder} ${data[i].orderId}",
+                                        "${'newOrder'.tr} ${data[i].orderId}",
                                     address: data[i].address?.location,
                                     omr: data[i].total.toString(),
                                     onTap: () {
@@ -257,7 +257,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         child: onData == null || onData.isEmpty
                             ? Center(
                                 child: Text(
-                                  AppLocalizations.of(context)!.noOngoing,
+                                  'noOngoing'.tr,
                                   style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w600,
@@ -267,11 +267,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             : ListView.builder(
                                 itemCount: onData.length,
                                 shrinkWrap: true,
-                                physics: AlwaysScrollableScrollPhysics(),
+                                physics: BouncingScrollPhysics(),
                                 itemBuilder: (BuildContext context, i) {
                                   return OrderListCard(
                                     orderNumber:
-                                        "${AppLocalizations.of(context)!.ongoingOrder} ${onData[i].orderInvoice}",
+                                        "${'ongoingOrder'.tr} ${onData[i].orderInvoice}",
                                     address: onData[i].address?.location,
                                     omr: onData[i].total.toString(),
                                     onTap: () {

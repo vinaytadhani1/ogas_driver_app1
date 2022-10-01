@@ -69,7 +69,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
       if (status == 'loggedIn') {
         loginReq.mobile = phone;
-
         await loginViewModel.login(loginReq);
         if (loginViewModel.loginApiResponse.status == Status.COMPLETE) {
           LoginResponseModel response = loginViewModel.loginApiResponse.data;

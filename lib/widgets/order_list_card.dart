@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ogas_driver_app/util/colors.dart';
 import 'package:ogas_driver_app/widgets/grey_shadow_border_model.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -21,9 +22,10 @@ class OrderListCard extends StatelessWidget {
       child: GreyborderCont(
         padding: const EdgeInsets.all(10),
         margin: const EdgeInsets.only(
-          top: 20,
+          top: 15,
           left: 15,
           right: 15,
+          bottom: 15,
         ),
         height: MediaQuery.of(context).size.height / 8.0,
         width: MediaQuery.of(context).size.width - 40,
@@ -44,6 +46,7 @@ class OrderListCard extends StatelessWidget {
               children: [
                 Expanded(
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
@@ -54,13 +57,14 @@ class OrderListCard extends StatelessWidget {
                           color: Color(0xff656565),
                         ),
                       ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width - 60,
+                      Container(
+                        width: MediaQuery.of(context).size.width,
                         child: Text(
-                          "${AppLocalizations.of(context)!.address} : ${address.toString()}",
+                          "${'address'.tr} : ${address.toString()}",
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             fontSize: 12,
+
                             fontWeight: FontWeight.bold,
                             overflow: TextOverflow.ellipsis,
                             color: Color(0xff656565),
@@ -80,7 +84,7 @@ class OrderListCard extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      AppLocalizations.of(context)!.orderdetails,
+                      'orderdetails'.tr,
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.bold,

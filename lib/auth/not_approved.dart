@@ -1,5 +1,6 @@
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class NotApproved extends StatefulWidget {
   const NotApproved({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class _NotApprovedState extends State<NotApproved> {
           Image.asset('asset/wait.png'),
           SizedBox(height: 30),
           Text(
-            AppLocalizations.of(context)!.wait,
+            'wait'.tr,
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 18,
@@ -27,7 +28,7 @@ class _NotApprovedState extends State<NotApproved> {
           ),
           SizedBox(height: 10),
           Text(
-            AppLocalizations.of(context)!.approve,
+            'approve'.tr,
             style: TextStyle(
               fontWeight: FontWeight.w500,
               fontSize: 18,
@@ -35,7 +36,7 @@ class _NotApprovedState extends State<NotApproved> {
           ),
           SizedBox(height: 10),
           Text(
-            AppLocalizations.of(context)!.comeBack,
+            'comeBack'.tr,
             style: TextStyle(
               fontWeight: FontWeight.w500,
               fontSize: 18,

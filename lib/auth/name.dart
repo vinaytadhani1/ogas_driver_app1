@@ -146,7 +146,7 @@ class _HomeState extends State<NamePage> {
           }
         },
         child: Text(
-          "${AppLocalizations.of(context)?.enter}",
+          "${'enter'.tr}",
           style: TextStyle(
             color: Colors.white,
             fontSize: 17,
@@ -185,7 +185,7 @@ class _HomeState extends State<NamePage> {
                     Padding(
                       padding: EdgeInsets.all(20.0),
                       child: Text(
-                        AppLocalizations.of(context)!.nameText,
+                        'nameText'.tr,
                         style: TextStyle(
                           fontSize: 35,
                           fontWeight: FontWeight.bold,
@@ -222,8 +222,8 @@ class _HomeState extends State<NamePage> {
                         ),
                         CustomTextField(
                           controller: fullNameController,
-                          hintText: AppLocalizations.of(context)!.john,
-                          mName: AppLocalizations.of(context)!.fullName,
+                          hintText: 'john'.tr,
+                          mName: 'fullName'.tr,
                           keyboardType: TextInputType.name,
                         ),
                         const SizedBox(
@@ -232,16 +232,15 @@ class _HomeState extends State<NamePage> {
                         CustomTextField(
                           controller: emailController,
                           hintText: 'johnsmith24@example.com',
-                          mName: AppLocalizations.of(context)!.email,
+                          mName: 'email'.tr,
                           keyboardType: TextInputType.emailAddress,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return AppLocalizations.of(context)!
-                                  .requiredField;
+                              return 'requiredField'.tr;
                             }
 
                             if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
-                              return AppLocalizations.of(context)!.validEmail;
+                              return 'validEmail'.tr;
                             }
 
                             return null;
@@ -253,7 +252,7 @@ class _HomeState extends State<NamePage> {
                         CustomTextField(
                           controller: licensenumberController,
                           hintText: '211699209',
-                          mName: AppLocalizations.of(context)!.licensenumber,
+                          mName: 'licensenumber'.tr,
                           keyboardType: TextInputType.number,
                           maxLength: 9,
                         ),
@@ -263,7 +262,7 @@ class _HomeState extends State<NamePage> {
                         CustomTextField(
                           controller: vehiclenumberController,
                           hintText: '5429LK',
-                          mName: AppLocalizations.of(context)!.vehiclenumber,
+                          mName: 'vehiclenumber'.tr,
                           keyboardType: TextInputType.text,
                           maxLength: 6,
                         ),

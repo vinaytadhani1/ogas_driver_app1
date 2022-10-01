@@ -37,8 +37,8 @@ class _OrdedDetailsPageState extends State<OrderdetailsPage> {
         onTap: () {
           Get.back();
         },
-        text: AppLocalizations.of(context)!.orderdetails,
-        child: SingleChildScrollView(
+        text: 'orderdetails'.tr,
+        child: SingleChildScrollView(physics: BouncingScrollPhysics(),
           child: Container(
             padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
             child: Column(
@@ -50,7 +50,7 @@ class _OrdedDetailsPageState extends State<OrderdetailsPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '# ${AppLocalizations.of(context)!.newtext} ${widget.data!.orderId}',
+                        '# ${'newtext'.tr} ${widget.data!.orderId}',
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -61,41 +61,41 @@ class _OrdedDetailsPageState extends State<OrderdetailsPage> {
                         physics: NeverScrollableScrollPhysics(),
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
-                          childAspectRatio: 2.1,
+                          childAspectRatio: 2.5,
                         ),
                         itemCount: widget.orderHistory?.length,
                         shrinkWrap: true,
                         itemBuilder: (c, i) {
-                          return Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "${widget.orderHistory?[i].type == '1' ? AppLocalizations.of(context)!.refill : AppLocalizations.of(context)!.newtext} ${widget.orderHistory?[i].product?.productName} (${widget.orderHistory?[i].product?.category?.category} kg)",
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                ),
-                              ),
-                              Text(
-                                "${AppLocalizations.of(context)!.qty} : ${widget.orderHistory?[i].quantity}",
-                                style: TextStyle(
-                                    fontSize: 12,
+                          return Container(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "${widget.orderHistory?[i].type == '1' ? 'refill'.tr : 'newtext'.tr} ${widget.orderHistory?[i].product?.productName} (${widget.orderHistory?[i].product?.category?.category} kg)",
+                                  style: TextStyle(
+                                    fontSize: 15,
                                     fontWeight: FontWeight.bold,
-                                    color: Color(0xff656565),
-                                    height: 1.5),
-                              ),
-                            ],
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                Text(
+                                  "${'qty'.tr} : ${widget.orderHistory?[i].quantity}",
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color(0xff656565),
+                                      height: 1.5),
+                                ),
+                                SizedBox(width: 20),
+                              ],
+                            ),
                           );
                         },
                       ),
-                      SizedBox(
-                          height: MediaQuery.of(context).size.height / 230),
+                      SizedBox(height: MediaQuery.of(context).size.height / 230),
                       const Divider(color: ColorConstnt.whitegrey),
-                      SizedBox(
-                          height: MediaQuery.of(context).size.height / 230),
-                      Text(
-                        AppLocalizations.of(context)!.delivereydate,
+                      SizedBox(height: MediaQuery.of(context).size.height / 230),
+                      Text('delivereydate'.tr,
                         style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
@@ -116,7 +116,7 @@ class _OrdedDetailsPageState extends State<OrderdetailsPage> {
                       SizedBox(
                           height: MediaQuery.of(context).size.height / 230),
                       Text(
-                        AppLocalizations.of(context)!.deliverytime,
+                        'deliverytime'.tr,
                         style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
@@ -143,7 +143,7 @@ class _OrdedDetailsPageState extends State<OrderdetailsPage> {
                       SizedBox(
                           height: MediaQuery.of(context).size.height / 230),
                       Text(
-                        AppLocalizations.of(context)!.locatiion,
+                        'locatiion'.tr,
                         style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
@@ -173,7 +173,7 @@ class _OrdedDetailsPageState extends State<OrderdetailsPage> {
                           ));
                         },
                         child: Text(
-                          AppLocalizations.of(context)!.viewmap,
+                          'viewmap'.tr,
                           style: TextStyle(
                             decoration: TextDecoration.underline,
                             fontSize: 15,
@@ -206,7 +206,7 @@ class _OrdedDetailsPageState extends State<OrderdetailsPage> {
                 Navigator.pop(context);
               },
               child: Text(
-                AppLocalizations.of(context)!.cancel,
+                'cancel'.tr,
                 style: TextStyle(
                   fontWeight: FontWeight.w900,
                   color: Color(0xffF44336),
@@ -267,7 +267,7 @@ class _OrdedDetailsPageState extends State<OrderdetailsPage> {
                 } else {}
               },
               child: Text(
-                AppLocalizations.of(context)!.accept,
+                'accept'.tr,
                 style: TextStyle(
                   fontWeight: FontWeight.w900,
                   color: Colors.white,

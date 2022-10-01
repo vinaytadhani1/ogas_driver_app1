@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
+import 'package:ogas_driver_app/util/language_translatons.dart';
 import 'package:ogas_driver_app/viewModel/accept_order_view_model.dart';
 import 'package:ogas_driver_app/viewModel/cancel_order_view_model.dart';
 import 'package:ogas_driver_app/viewModel/edit_profile_view_model.dart';
@@ -68,38 +69,36 @@ class MyApp extends StatefulWidget {
 
   @override
   State<MyApp> createState() => _MyAppState();
-  static void setLocale(BuildContext context, Locale newLocale) {
-    _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
-    state?.setLocale(newLocale);
-  }
+  // static void setLocale(BuildContext context, Locale newLocale) {
+  //   _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
+  //   state?.setLocale(newLocale);
+  // }
 }
 
 class _MyAppState extends State<MyApp> {
-  Locale? _locale;
+  // Locale? _locale;
 
-  setLocale(Locale locale) {
-    setState(() {
-      _locale = locale;
-    });
-  }
+  // setLocale(Locale locale) {
+  //   setState(() {
+  //     _locale = locale;
+  //   });
+  // }
 
-  @override
-  void didChangeDependencies() {
-    getLocale().then((locale) => {setLocale(locale)});
-    super.didChangeDependencies();
-  }
+  // @override
+  // void didChangeDependencies() {
+  //   getLocale().then((locale) => {setLocale(locale)});
+  //   super.didChangeDependencies();
+  // }
 
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      locale: _locale,
+      // localizationsDelegates: AppLocalizations.localizationsDelegates,
+      // supportedLocales: AppLocalizations.supportedLocales,
+      locale: Get.deviceLocale,
+      translations: LanguageTranslations(),
       debugShowCheckedModeBanner: false,
       title: 'Ogas Driver App',
-      // builder: (context, child) {
-      //     return Directionality(textDirection: TextDirection.rtl, child: child!);
-      //   },
       theme: ThemeData(
         colorSchemeSeed: ColorConstnt.mainorange,
         fontFamily: "DMSans",

@@ -40,7 +40,7 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
   AcceptOrderResponseModel acceptOrderRes = AcceptOrderResponseModel();
   @override
   Widget build(BuildContext context) {
-    String reason = AppLocalizations.of(context)!.customernotavailableathome;
+    String reason = 'customernotavailableathome'.tr;
 
     return Scaffold(
       body: Background(
@@ -48,8 +48,9 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
         onTap: () {
           Get.back();
         },
-        text: AppLocalizations.of(context)!.orderdetails,
+        text: 'orderdetails'.tr,
         child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
           child: Container(
             padding: const EdgeInsets.only(
                 top: 50, left: 15, right: 15, bottom: 110),
@@ -89,7 +90,7 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "${AppLocalizations.of(context)!.ongoing} ${widget.data?.orderInvoice}",
+                              "${'ongoing'.tr} ${widget.data?.orderInvoice}",
                               style: const TextStyle(
                                 fontSize: 15,
                                 color: Colors.black,
@@ -102,7 +103,7 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                           height: 12,
                         ),
                         Text(
-                          "${AppLocalizations.of(context)!.omr} : ${widget.data?.total}",
+                          "${'omr'.tr} : ${widget.data?.total}",
                           style: TextStyle(
                             fontSize: 15,
                             color: Color(0xff656565),
@@ -110,7 +111,7 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                           ),
                         ),
                         Text(
-                          "${AppLocalizations.of(context)!.address} : ${widget.data?.address?.location}",
+                          "${'address'.tr} : ${widget.data?.address?.location}",
                           style: TextStyle(
                             fontSize: 15,
                             color: Color(0xff656565),
@@ -124,51 +125,53 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                     ),
                   ),
                   const SizedBox(
-                    height: 12,
+                    height: 5,
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(12),
+                    padding: const EdgeInsets.all(10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         GridView.builder(
                           physics: NeverScrollableScrollPhysics(),
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                                  childAspectRatio: 2.5, crossAxisCount: 2),
+                          gridDelegate:SliverGridDelegateWithFixedCrossAxisCount(
+                            childAspectRatio: 2.3, crossAxisCount: 2),
                           itemCount: widget.orderHistory?.length,
                           shrinkWrap: true,
                           itemBuilder: (c, i) {
-                            return Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "${widget.orderHistory?[i].type == "1" ? "${AppLocalizations.of(context)!.refill}" : "${AppLocalizations.of(context)!.newtext}"} ${widget.orderHistory?[i].product?.productName} (${widget.orderHistory?[i].product?.category?.category} kg)",
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                Text(
-                                  "${AppLocalizations.of(context)!.qty} : ${widget.orderHistory?[i].quantity}",
-                                  style: TextStyle(
+                            return Container(
+                              height: MediaQuery.of(context).size.height,
+                              width: MediaQuery.of(context).size.width,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "${widget.orderHistory?[i].type == "1" ? "${'refill'.tr}" : "${'newtext'.tr}"} ${widget.orderHistory?[i].product?.productName} (${widget.orderHistory?[i].product?.category?.category} kg)",
+                                    style: TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.bold,
-                                      color: Color(0xff656565),
-                                      height: 1.5),
-                                ),
-                              ],
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                  Text(
+                                    "${'qty'.tr} : ${widget.orderHistory?[i].quantity}",
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold,
+                                        color: Color(0xff656565),
+                                        height: 1.5),
+                                  ),
+                                ],
+                              ),
                             );
                           },
                         ),
-                        SizedBox(
-                            height: MediaQuery.of(context).size.height / 190),
+                        SizedBox(height: 10,),
                         const Divider(color: ColorConstnt.whitegrey),
                         SizedBox(
-                            height: MediaQuery.of(context).size.height / 190),
+                            height: MediaQuery.of(context).size.height / 200),
                         Text(
-                          AppLocalizations.of(context)!.delivereydate,
+                          'delivereydate'.tr,
                           style: TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
@@ -193,7 +196,7 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                           height: MediaQuery.of(context).size.height / 190,
                         ),
                         Text(
-                          AppLocalizations.of(context)!.deliverytime,
+                          'deliverytime'.tr,
                           style: TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
@@ -224,7 +227,7 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                           height: MediaQuery.of(context).size.height / 190,
                         ),
                         Text(
-                          AppLocalizations.of(context)!.payment,
+                          'payment'.tr,
                           style: TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
@@ -249,7 +252,7 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                           height: MediaQuery.of(context).size.height / 190,
                         ),
                         Text(
-                          AppLocalizations.of(context)!.total,
+                          'total'.tr,
                           style: TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
@@ -280,7 +283,7 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                             ));
                           },
                           child: Text(
-                            AppLocalizations.of(context)!.viewmap,
+                            'viewmap'.tr,
                             style: TextStyle(
                               fontWeight: FontWeight.w600,
                               decoration: TextDecoration.underline,
@@ -331,8 +334,7 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                             mainAxisSize: MainAxisSize.min,
                             children: <Widget>[
                               Text(
-                                AppLocalizations.of(context)!
-                                    .selectreasonforcancelorder,
+                                'selectreasonforcancelorder'.tr,
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18,
@@ -360,8 +362,7 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                                   }),
                                 ),
                                 title: Text(
-                                  AppLocalizations.of(context)!
-                                      .customernotavailableathome,
+                                  'customernotavailableathome'.tr,
                                   style: TextStyle(
                                     fontWeight: FontWeight.w400,
                                     fontSize: 15,
@@ -396,8 +397,7 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                                   }),
                                 ),
                                 title: Text(
-                                  AppLocalizations.of(context)!
-                                      .locationnotclear,
+                                  'locationnotclear'.tr,
                                   style: TextStyle(
                                     fontWeight: FontWeight.w400,
                                     fontSize: 15,
@@ -432,7 +432,7 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                                   }),
                                 ),
                                 title: Text(
-                                  AppLocalizations.of(context)!.otherreason,
+                                  'otherreason'.tr,
                                   style: TextStyle(
                                     fontWeight: FontWeight.w400,
                                     fontSize: 15,
@@ -465,7 +465,7 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                                       Get.back();
                                     },
                                     child: Text(
-                                      AppLocalizations.of(context)!.cancel,
+                                      'cancel'.tr,
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         color: Color(0xff1C75BC),
@@ -538,7 +538,7 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                                       } else {}
                                     },
                                     child: Text(
-                                      AppLocalizations.of(context)!.ok,
+                                      'ok'.tr,
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         color: Color(0xFFFFFFFF),
@@ -555,7 +555,7 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                     });
               },
               child: Text(
-                AppLocalizations.of(context)!.cancelorder,
+                'cancelorder'.tr,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Color(0xffF44336),
@@ -620,14 +620,13 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
               },
               child: Text(
                 widget.data!.status != '1'
-                    ? AppLocalizations.of(context)!.delivered
-                    : AppLocalizations.of(context)!
-                        .outfordelivery
+                    ? 'delivered'.tr
+                    : 'outfordelivery'.tr
                         .toUpperCase(),
                 style: TextStyle(
                   fontWeight: FontWeight.w900,
                   color: Color(0xFFFFFFFF),
-                  fontSize: 17,
+                  fontSize: 15,
                 ),
               ),
             )

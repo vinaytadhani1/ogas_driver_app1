@@ -73,7 +73,7 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       body: Background(
         imagename: "asset/icons/drawerList_icon/leftarrow2x.png",
-        text: AppLocalizations.of(context)!.profile,
+        text: 'profile'.tr,
         onTap: () {
           Get.back();
         },
@@ -86,37 +86,37 @@ class _ProfilePageState extends State<ProfilePage> {
                 children: [
                   CustomTextField(
                     controller: fullnamecontroller,
-                    mName: AppLocalizations.of(context)!.fullName,
-                    hintText: AppLocalizations.of(context)!.john,
+                    mName: 'fullName'.tr,
+                    hintText: 'john'.tr,
                   ),
                   SizedBox(height: 20),
                   CustomTextField(
                     controller: emailcontroller,
                     validator: (_) {
                       if (!_!.contains('@') || !_.contains('.')) {
-                        return AppLocalizations.of(context)!.validEmail;
+                        return 'validEmail'.tr;
                       }
                       return null;
                     },
-                    mName: AppLocalizations.of(context)!.email,
+                    mName: 'email'.tr,
                     hintText: "johnsmith24@example.com",
                   ),
                   SizedBox(height: 20),
                   CustomTextField(
                     controller: licensecontroller,
-                    mName: AppLocalizations.of(context)!.licensenumber,
+                    mName: 'licensenumber'.tr,
                     hintText: "211699209",
                   ),
                   SizedBox(height: 20),
                   CustomTextField(
                     controller: vehiclecontroller,
-                    mName: AppLocalizations.of(context)!.vehiclenumber,
+                    mName: 'vehiclenumber'.tr,
                     hintText: "5429LK",
                   ),
                   SizedBox(height: 20),
                   CustomTextField(
                     controller: phoneNumberController,
-                    mName: AppLocalizations.of(context)!.phoneNumber,
+                    mName: 'phoneNumber'.tr,
                     hintText: "(+91) 1212121212",
                   ),
                   SizedBox(
@@ -203,7 +203,7 @@ class _ProfilePageState extends State<ProfilePage> {
           }
         },
         child: Text(
-          AppLocalizations.of(context)!.save,
+          'save'.tr,
           style: TextStyle(
             color: Colors.white,
             fontSize: 20,

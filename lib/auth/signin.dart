@@ -67,7 +67,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             duration: Duration(seconds: 2),
             snackPosition: SnackPosition.TOP,
             messageText: Text(
-              AppLocalizations.of(context!)!.verificationFailed,
+              'verificationFailed'.tr,
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             ),
           ));
@@ -137,8 +137,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         padding: const EdgeInsets.all(20.0),
                         child: Text(
                           widget.sign == true
-                              ? AppLocalizations.of(context)!.createYourAccount
-                              : AppLocalizations.of(context)!.helloSignIn,
+                              ? 'createYourAccount'.tr
+                              : 'helloSignIn'.tr,
                           style: const TextStyle(
                               fontSize: 35,
                               fontWeight: FontWeight.bold,
@@ -191,7 +191,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                           controller: _phoneController,
                           hintText: '9689555569',
-                          mName: AppLocalizations.of(context)!.phoneNumber,
+                          mName: 'phoneNumber'.tr,
                           validator: validateMobile,
                           keyboardType: TextInputType.number,
                           maxLength: 10,
@@ -208,26 +208,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           onPressed: () async {
                             showLoadingDialog(context: context);
                             if (_formKey.currentState!.validate()) {
-                              SharedPreferences pref =
-                                  await SharedPreferences.getInstance();
-                              pref.setString(PrefString.phoneNumber,
-                                  _phoneController.text);
+                              SharedPreferences pref = await SharedPreferences.getInstance();
+                              pref.setString(PrefString.phoneNumber,_phoneController.text);
                               if (widget.sign == true) {
                                 login = false;
                                 setState(() {});
 
                                 checkDriverReq.mobile = _phoneController.text;
                                 FocusScope.of(context).unfocus();
-                                await checkDriverViewModel
-                                    .checkDriver(checkDriverReq);
-                                if (checkDriverViewModel
-                                        .checkDriverApiResponse.status ==
-                                    Status.COMPLETE) {
-                                  CheckDriverResponseModel response =
-                                      checkDriverViewModel
-                                          .checkDriverApiResponse.data;
-                                  print(
-                                      'CHECK DRIVER status ${response.success}');
+                                await checkDriverViewModel.checkDriver(checkDriverReq);
+                                if (checkDriverViewModel.checkDriverApiResponse.status ==Status.COMPLETE) {
+                                  CheckDriverResponseModel response = checkDriverViewModel.checkDriverApiResponse.data;
+                                  print('CHECK DRIVER status ${response.success}');
 
                                   if (response.success == false) {
                                     Get.showSnackbar(GetSnackBar(
@@ -247,18 +239,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   if (response.success == true) {
                                     print('valid');
 
-                                    signin(
-                                        context: context,
-                                        phone: countryCodes +
-                                            _phoneController.text);
+                                    signin(context: context,phone: countryCodes + _phoneController.text);
                                   } else {
                                     print('invalid');
                                   }
                                 } else {
                                   hideLoadingDialog(context: context);
                                 }
-                                final sign =
-                                    await SmsAutoFill().getAppSignature;
+                                final sign = await SmsAutoFill().getAppSignature;
                                 print(sign);
                               } else {
                                 login = true;
@@ -266,12 +254,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 loginReq.mobile = _phoneController.text;
                                 FocusScope.of(context).unfocus();
                                 await loginViewModel.login(loginReq);
-                                if (loginViewModel.loginApiResponse.status ==
-                                    Status.COMPLETE) {
-                                  LoginResponseModel response =
-                                      loginViewModel.loginApiResponse.data;
+                                if (loginViewModel.loginApiResponse.status == Status.COMPLETE) {
+                                  LoginResponseModel response = loginViewModel.loginApiResponse.data;
                                   print('LOGIN status ${response.success}');
-
                                   if (response.success == false) {
                                     Get.showSnackbar(GetSnackBar(
                                       backgroundColor: Color(0xffF2F3F2),
@@ -287,51 +272,34 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     hideLoadingDialog(context: context);
                                     return;
                                   }
-                                  if (response.success == true) {
-                                    print('valid');
-                                    SharedPreferences pref =
-                                        await SharedPreferences.getInstance();
-
-                                    pref.setString(PrefString.address, '');
-                                    pref.setString(PrefString.token,
-                                        response.data!.token.toString());
-                                    pref.setString(PrefString.id,
-                                        response.data!.user!.id!.toString());
-                                    pref.setString(
-                                        PrefString.vehicleNumber,
-                                        response.data!.user!.vehicleNo
-                                            .toString());
-                                    pref.setString(PrefString.name,
-                                        response.data!.user!.name.toString());
-                                    pref.setString(PrefString.phoneNumber,
-                                        response.data!.user!.mobile.toString());
-                                    pref.setString(PrefString.email,
-                                        response.data!.user!.email.toString());
-                                    pref.setString(
-                                        PrefString.licenseNumber,
-                                        response.data!.user!.licenceNo
-                                            .toString());
-                                    pref.setString(
-                                        PrefString.countryCode, countryCodes);
-                                    pref.setString(PrefString.devicetype, ' ');
-                                    signin(
-                                        context: context,
-                                        phone: countryCodes +
-                                            _phoneController.text);
+                          if (response.success == true) {
+                            print('valid');
+                            SharedPreferences pref = await SharedPreferences.getInstance();
+                            pref.setString(PrefString.loggedIn, 'loggedIn');
+                            pref.setString(PrefString.address, '');
+                            pref.setString(PrefString.token,response.data!.token.toString());
+                            pref.setString(PrefString.id,response.data!.user!.id!.toString());
+                            pref.setString(PrefString.vehicleNumber,response.data!.user!.vehicleNo.toString());
+                            pref.setString(PrefString.name,response.data!.user!.name.toString());
+                            pref.setString(PrefString.phoneNumber,response.data!.user!.mobile.toString());
+                            pref.setString(PrefString.email,response.data!.user!.email.toString());
+                            pref.setString(PrefString.licenseNumber,response.data!.user!.licenceNo.toString());
+                            pref.setString( PrefString.countryCode, countryCodes);
+                            pref.setString(PrefString.devicetype, ' ');
+                            signin(context: context,phone: countryCodes + _phoneController.text);
                                   } else {
                                     print('invalid');
                                   }
                                 } else {
                                   hideLoadingDialog(context: context);
                                 }
-                                final sign =
-                                    await SmsAutoFill().getAppSignature;
+                                final sign = await SmsAutoFill().getAppSignature;
                                 print(sign);
                               }
                             }
                           },
                           child: Text(
-                            AppLocalizations.of(context)!.getOtp,
+                            'getOtp'.tr,
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 17,
@@ -345,8 +313,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           children: [
                             Text(
                               widget.sign == true
-                                  ? AppLocalizations.of(context)!.signInText
-                                  : AppLocalizations.of(context)!.signUpText,
+                                  ? 'signInText'.tr
+                                  : 'signUpText'.tr,
                               style: const TextStyle(
                                 color: ColorConstnt.grey,
                                 fontSize: 15,
@@ -364,8 +332,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               },
                               child: Text(
                                 widget.sign == true
-                                    ? AppLocalizations.of(context)!.signInText2
-                                    : AppLocalizations.of(context)!.signUpText2,
+                                    ? 'signInText2'.tr
+                                    : 'signUpText2'.tr,
                                 style: const TextStyle(
                                   color: Color(0xff212121),
                                   fontSize: 15,
@@ -391,7 +359,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   String? validateMobile(String? value) {
     if (value!.isEmpty) {
-      return AppLocalizations.of(context)!.number;
+      return 'number'.tr;
     }
     return null;
   }

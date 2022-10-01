@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 
+import '../homescreen/language/language.dart';
+
 class CustomDrawerList extends StatelessWidget {
   String image;
   String text;
@@ -14,7 +16,7 @@ class CustomDrawerList extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.only(left: 20, top: 20),
+        padding: ggvalue == 0 ?  EdgeInsets.only(left: 20, top: 20) :  EdgeInsets.only(right: 20, top: 20),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
