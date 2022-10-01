@@ -91,6 +91,27 @@ class _LanguagePageState extends State<LanguagePage> {
                             //   SharedPreferences pref = await SharedPreferences.getInstance();
                             //   pref.setString(PrefString.language, 'Arabic');
                             // }
+                            // if(ggvalue==0){
+                            //   SharedPreferences pref = await SharedPreferences.getInstance();
+                            //   pref.setString(PrefString.language, 'English');
+                            // }else{
+                            //   SharedPreferences pref = await SharedPreferences.getInstance();
+                            //   pref.setString(PrefString.language, 'Arabic');
+                            // }
+                            // if(ggvalue==0){
+                            //   SharedPreferences pref = await SharedPreferences.getInstance();
+                            //   pref.setString(PrefString.language, 'English');
+                            // }else{
+                            //   SharedPreferences pref = await SharedPreferences.getInstance();
+                            //   pref.setString(PrefString.language, 'Arabic');
+                            // }
+                            // if(ggvalue==0){
+                            //   SharedPreferences pref = await SharedPreferences.getInstance();
+                            //   pref.setString(PrefString.language, 'English');
+                            // }else{
+                            //   SharedPreferences pref = await SharedPreferences.getInstance();
+                            //   pref.setString(PrefString.language, 'Arabic');
+                            // }
                             ggvalue == index ?  pref.setString(PrefString.language, 'English') : 
                                             pref.setString(PrefString.language, 'Arabic');
                             setState(() {});
