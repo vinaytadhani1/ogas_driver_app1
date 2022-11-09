@@ -217,7 +217,7 @@ class _OrdedDetailsPageState extends State<OrderdetailsPage> {
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(155, 50),
-                primary: const Color(0xFF4CAF50),
+                backgroundColor:  ColorConstnt.mainbutton,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(18),
                 ),

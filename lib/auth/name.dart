@@ -37,6 +37,7 @@ class _HomeState extends State<NamePage> {
   String? countryCode;
   String? licenseNumber;
   String? vehicleNumber;
+  
   getpphon() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     ppho = pref.getString(PrefString.phoneNumber);
@@ -69,7 +70,7 @@ class _HomeState extends State<NamePage> {
       floatingActionButton: ElevatedButton(
         style: ElevatedButton.styleFrom(
           minimumSize: const Size(200, 50),
-          primary: const Color(0xff1C75BC),
+          backgroundColor: ColorConstnt.mainbutton,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(25),
           ),
@@ -158,26 +159,13 @@ class _HomeState extends State<NamePage> {
           height: MediaQuery.of(context).size.height + 200,
           width: MediaQuery.of(context).size.width,
           decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                ColorConstnt.orange1,
-                ColorConstnt.mainorange,
-                ColorConstnt.mainorange,
-              ],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
+            color: Color((0xff092C4C),),
           ),
           child: Column(
             children: [
               Container(
                 height: 170,
                 width: MediaQuery.of(context).size.width,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("asset/gascylinderback.png"),
-                  ),
-                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -188,6 +176,7 @@ class _HomeState extends State<NamePage> {
                         'nameText'.tr,
                         style: TextStyle(
                           fontSize: 35,
+                          color: ColorConstnt.white,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

@@ -77,7 +77,7 @@ class OrderListCard extends StatelessWidget {
                 Container(
                   clipBehavior: Clip.antiAlias,
                   decoration: BoxDecoration(
-                    color: ColorConstnt.mainorange,
+                    color: ColorConstnt.mainbutton,
                     borderRadius: BorderRadius.circular(8),
                   ),
                   alignment: Alignment.center,

@@ -104,19 +104,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             decoration: const BoxDecoration(
-              // color: Color(0xffF58823),
-
-              gradient: LinearGradient(
-                colors: [
-                  Color(
-                    0xffFBB941,
-                  ),
-                  Color(0xffF58823),
-                  Color(0xffF58823),
-                ],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-              ),
+              color: ColorConstnt.maincolor,
             ),
             child: Column(
               children: [
@@ -124,10 +112,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   height: 190,
                   width: MediaQuery.of(context).size.width,
                   decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage("asset/gascylinderback.png"),
-                      fit: BoxFit.cover,
-                    ),
+                   
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -141,6 +126,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               : 'helloSignIn'.tr,
                           style: const TextStyle(
                               fontSize: 35,
+                              color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontFamily: "DMSans"),
                         ),
@@ -200,7 +186,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             minimumSize: const Size(200, 50),
-                            primary: const Color(0xff1C75BC),
+                            primary: ColorConstnt.mainbutton,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(25),
                             ),
@@ -338,7 +324,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   color: Color(0xff212121),
                                   fontSize: 15,
                                   fontFamily: "DMSans",
-                                  fontWeight: FontWeight.w500,
+                                  fontWeight: FontWeight.w600,
                                 ),
                               ),
                             ),

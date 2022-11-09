@@ -41,7 +41,7 @@ class CustomTextField extends StatelessWidget {
           child: Text(mName ?? "",
               style: TextStyle(
                 color: const Color(0xff212121).withOpacity(0.9),
-                fontSize: 16,
+                fontSize: 22,
                 fontWeight: FontWeight.w600,
               )),
         ),
@@ -63,7 +63,7 @@ class CustomTextField extends StatelessWidget {
               hintStyle: const TextStyle(
                 fontWeight: FontWeight.w400,
                 color: ColorConstnt.grey,
-                fontSize: 15,
+                fontSize: 16,
               ),
               hintText: hintText ?? "",
               enabledBorder: const UnderlineInputBorder(

@@ -158,29 +158,54 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               children: [
                 SizedBox(
                   height: MediaQuery.of(context).size.height / 12,
-                  child: TabBar(
-                    indicatorColor: ColorConstnt.mainorange,
-                    unselectedLabelColor: Colors.black,
-                    tabs: [
-                      Tab(
-                        child: Text(
-                          "${'newtext'.tr} (${data.length})",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18),
+                  child: Container(
+                    margin: EdgeInsets.only(top: 12,left: 10,right: 10),
+                      height: 45,
+                      decoration: BoxDecoration(
+                      border: Border.all(color: ColorConstnt.mainbutton,width: 2.0),
+                      color: ColorConstnt.white,
+                      borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(35),
+                            topRight: Radius.circular(35),
+                            bottomLeft: Radius.circular(35),
+                            bottomRight: Radius.circular(35),
+                      ),
+                    ),
+                    child: TabBar(
+                      indicatorColor: ColorConstnt.mainorange,
+                      unselectedLabelColor: Colors.black,
+                      labelStyle: TextStyle(color: Colors.grey),
+                      indicator: BoxDecoration(
+                        // Creates border
+                        color: ColorConstnt.mainbutton,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(35),
+                            bottomLeft: Radius.circular(35),
+                            bottomRight: Radius.circular(35),
+                            topRight: Radius.circular(35),
                         ),
                       ),
-                      Tab(
-                        child: Text(
-                          "${'ongoing'.tr} (${onData.length})",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18),
+                      tabs: [
+                        Tab(
+                          child: Text(
+                            "${'newtext'.tr} (${data.length})",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18),
+                          ),
                         ),
-                      ),
-                    ],
+                        Tab(
+                          child: Text(
+                            "${'ongoing'.tr} (${onData.length})",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Expanded(

@@ -478,7 +478,7 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                                     style: ElevatedButton.styleFrom(
                                       shadowColor: Colors.transparent,
                                       minimumSize: const Size(150, 50),
-                                      primary: Color(0xff1C75BC),
+                                      backgroundColor: ColorConstnt.mainbutton,
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(25),
                                       ),
@@ -567,7 +567,7 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(130, 50),
-                primary: Color(0xFF4CAF50),
+                backgroundColor: ColorConstnt.mainbutton,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(18),
                 ),

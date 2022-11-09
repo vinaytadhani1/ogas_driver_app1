@@ -18,7 +18,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Drawerpage extends StatefulWidget {
   const Drawerpage({Key? key}) : super(key: key);
-
   @override
   State<Drawerpage> createState() => _DrawerpageState();
 }
@@ -64,7 +63,7 @@ class _DrawerpageState extends State<Drawerpage> {
                 child: ListTile(
                   leading: CircleAvatar(
                     radius: 30,
-                    backgroundColor: ColorConstnt.orange1,
+                    backgroundColor: ColorConstnt.mainbutton,
                     foregroundColor: Colors.white,
                     child: Text('${name?[0].toString()}',
                         style: TextStyle(

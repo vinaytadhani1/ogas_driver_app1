@@ -131,7 +131,7 @@ class _ProfilePageState extends State<ProfilePage> {
       floatingActionButton: ElevatedButton(
         style: ElevatedButton.styleFrom(
           minimumSize: const Size(280, 50),
-          primary: const Color(0xff1C75BC),
+          backgroundColor: ColorConstnt.mainbutton,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(18),
           ),

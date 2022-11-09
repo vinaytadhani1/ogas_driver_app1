@@ -75,8 +75,7 @@ class _OtpVarificationState extends State<OtpVarification> {
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  void signInWithPhoneAuthCredential(
-      PhoneAuthCredential phoneAuthCredential) async {
+  void signInWithPhoneAuthCredential(PhoneAuthCredential phoneAuthCredential) async {
     try {
       final authCredential =
           await _auth.signInWithCredential(phoneAuthCredential);
@@ -85,6 +84,7 @@ class _OtpVarificationState extends State<OtpVarification> {
         // print('---Login---$login');
         pref.setString(PrefString.loggedIn, 'loggedIn');
         hideLoadingDialog(context: context);
+
         login == true ? Get.offAll(HomePage()) : Get.offAll(NamePage());
 
         Get.showSnackbar(GetSnackBar(
@@ -121,10 +121,7 @@ class _OtpVarificationState extends State<OtpVarification> {
         });
   }
 
-  resend({
-    @required BuildContext? context,
-    @required String? phone,
-  }) async {
+  resend({@required BuildContext? context,@required String? phone,}) async {
     showLoadingDialog(context: context);
     print(" -=-=-=-= Start signup function =-=-=-=-");
     await SharedPreferences.getInstance();
@@ -174,15 +171,7 @@ class _OtpVarificationState extends State<OtpVarification> {
           height: MediaQuery.of(context).size.height + 100,
           width: MediaQuery.of(context).size.width,
           decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                ColorConstnt.orange1,
-                ColorConstnt.mainorange,
-                ColorConstnt.mainorange,
-              ],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
+            color: ColorConstnt.maincolor,
           ),
           child: Column(
             children: [
@@ -190,9 +179,6 @@ class _OtpVarificationState extends State<OtpVarification> {
                 height: 190,
                 width: MediaQuery.of(context).size.width,
                 decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("asset/gascylinderback.png"),
-                  ),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -204,6 +190,7 @@ class _OtpVarificationState extends State<OtpVarification> {
                         'otpVarification'.tr,
                         style: TextStyle(
                             fontSize: 35,
+                            color: Colors.white,
                             fontWeight: FontWeight.bold,
                             fontFamily: "DMSans"),
                       ),

@@ -93,15 +93,15 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      locale: Locale('en', 'US'),
+      // localizationsDelegates: AppLocalizations.localizationsDelegates,
+      // supportedLocales: AppLocalizations.supportedLocales,
+      locale: Locale('en','US'),  
       translations: LanguageTranslations(),
       debugShowCheckedModeBanner: false,
       title: 'Ogas Driver App',
       theme: ThemeData(
         colorSchemeSeed: ColorConstnt.mainorange,
-        fontFamily: "DMSans",
+        fontFamily: "Roboto",
       ),
       home: SplashScreen(),
     );

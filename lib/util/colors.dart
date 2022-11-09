@@ -9,4 +9,6 @@ class ColorConstnt {
   static const Color whitegrey = Color(0xFFEDEDED);
   static const Color cancelColor = Color(0xffF44336);
   static const Color acceptColor = Color(0xFF4CAF50);
+  static const Color maincolor = Color(0xff092C4C);
+  static const Color mainbutton = Color(0xffF2994B);
 }

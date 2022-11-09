@@ -87,6 +87,9 @@ flutter:
     - family: DMSans
       fonts:
         - asset: asset/font/DMSans-Regular.ttf
+    - family: Roboto
+      fonts:
+        - asset: asset/font/Roboto.ttf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
