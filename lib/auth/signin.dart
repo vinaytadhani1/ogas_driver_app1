@@ -19,6 +19,7 @@ import 'package:ogas_driver_app/viewModel/login_view_model.dart';
 import 'package:ogas_driver_app/widgets/custom_text_field.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sms_autofill/sms_autofill.dart';
+import '../widgets/textstyle.dart';
 import 'otp_varification.dart';
 
 bool login = true;
@@ -68,7 +69,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
             snackPosition: SnackPosition.TOP,
             messageText: Text(
               'verificationFailed'.tr,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: TextStyle(// fontWeight: FontWeight.bold, 
+              fontSize: 18),
             ),
           ));
         },
@@ -127,8 +129,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           style: const TextStyle(
                               fontSize: 35,
                               color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: "DMSans"),
+                              // fontWeight: FontWeight.bold,
+                              ),
                         ),
                       ),
                     ],
@@ -215,7 +217,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                       messageText: Text(
                                         response.message.toString(),
                                         style: TextStyle(
-                                            fontWeight: FontWeight.bold,
+                                            // fontWeight: FontWeight.bold,
                                             fontSize: 18),
                                       ),
                                     ));
@@ -251,7 +253,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                       messageText: Text(
                                         response.message.toString(),
                                         style: TextStyle(
-                                            fontWeight: FontWeight.bold,
+                                            // fontWeight: FontWeight.bold,
                                             fontSize: 18),
                                       ),
                                     ));
@@ -288,7 +290,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             'getOtp'.tr,
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 17,
+                              fontSize: smalltitle,
                             ),
                           ),
                         ),
@@ -303,9 +305,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   : 'signUpText'.tr,
                               style: const TextStyle(
                                 color: ColorConstnt.grey,
-                                fontSize: 15,
-                                fontFamily: "DMSans",
-                                fontWeight: FontWeight.w500,
+                                fontSize: smalltitle1,
+                                // fontWeight: FontWeight.w500,
                               ),
                             ),
                             GestureDetector(
@@ -322,9 +323,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     : 'signUpText2'.tr,
                                 style: const TextStyle(
                                   color: Color(0xff212121),
-                                  fontSize: 15,
-                                  fontFamily: "DMSans",
-                                  fontWeight: FontWeight.w600,
+                                  fontSize: smalltitle1,
+                                  // fontWeight: FontWeight.w600,
                                 ),
                               ),
                             ),

@@ -105,7 +105,8 @@ class _HomeState extends State<NamePage> {
                 snackPosition: SnackPosition.TOP,
                 messageText: Text(
                   response.message.toString(),
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  style: TextStyle(// fontWeight: FontWeight.bold, 
+                  fontSize: 18),
                 ),
               ));
               return;
@@ -118,7 +119,8 @@ class _HomeState extends State<NamePage> {
                 snackPosition: SnackPosition.TOP,
                 messageText: Text(
                   response.message.toString(),
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  style: TextStyle(// fontWeight: FontWeight.bold, 
+                  fontSize: 18),
                 ),
               ));
               hideLoadingDialog(context: context);
@@ -177,7 +179,7 @@ class _HomeState extends State<NamePage> {
                         style: TextStyle(
                           fontSize: 35,
                           color: ColorConstnt.white,
-                          fontWeight: FontWeight.bold,
+                          // fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),

@@ -7,6 +7,43 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:712044319473:android:71ec8bc587a2b6129e8f50",
+        "android_client_info": {
+          "package_name": "com.adsum.ogas_driver_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "712044319473-f91em76cehrt5cha2ok47hcjiac0kkf8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.adsum.ogas_driver_app",
+            "certificate_hash": "e694730acbe8e941180261c674fed49d48ef7559"
+          }
+        },
+        {
+          "client_id": "712044319473-cvsffl8i9oe78spphlaveiqq7e3mjs9f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuArJSuY_DtQ53SWp249xih1wg4DEK_O8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "712044319473-cvsffl8i9oe78spphlaveiqq7e3mjs9f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:712044319473:android:f01a2a463f4db8dd9e8f50",
         "android_client_info": {
           "package_name": "com.example.ogas_driver_app"

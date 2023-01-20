@@ -16,7 +16,7 @@ class CustomDrawerList extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Padding(
-        padding: ggvalue == 0 ?  EdgeInsets.only(left: 20, top: 20) :  EdgeInsets.only(right: 20, top: 20),
+        padding:EdgeInsets.symmetric(horizontal: 20,vertical: 10), 
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -35,7 +35,7 @@ class CustomDrawerList extends StatelessWidget {
               text,
               style: const TextStyle(
                 fontSize: 18,
-                fontWeight: FontWeight.bold,
+                // fontWeight: FontWeight.bold,
               ),
             ),
           ],

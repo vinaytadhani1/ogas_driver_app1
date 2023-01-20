@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ogas_driver_app/util/colors.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:ogas_driver_app/widgets/textstyle.dart';
 
 class OrderCoustomHistory extends StatelessWidget {
   final String? orderNum;
@@ -77,27 +78,30 @@ class OrderCoustomHistory extends StatelessWidget {
                 Text(
                   orderNum.toString(),
                   style: const TextStyle(
-                      fontSize: 15,
+                      fontSize: smalltitle,
                       color: Colors.black,
-                      fontWeight: FontWeight.w600),
+                      // fontWeight: FontWeight.w600
+                      ),
                 ),
-                const SizedBox(height: 5),
+                const SizedBox(height: 8),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       "${'total'.tr} :",
                       style: TextStyle(
-                          fontSize: 15,
+                          fontSize: smalltitle1,
                           color: Color(0xff656565),
-                          fontWeight: FontWeight.w600),
+                          // fontWeight: FontWeight.w600
+                          ),
                     ),
                     Text(
                       "$totalOmr OMR",
                       style: TextStyle(
-                          fontSize: 15,
+                          fontSize: smalltitle1,
                           color: Color(0xff656565),
-                          fontWeight: FontWeight.w600),
+                          // fontWeight: FontWeight.w600
+                          ),
                     ),
                   ],
                 ),
@@ -107,16 +111,18 @@ class OrderCoustomHistory extends StatelessWidget {
                     Text(
                       "${'orderDate'.tr} :",
                       style: TextStyle(
-                          fontSize: 15,
+                          fontSize: smalltitle1,
                           color: Color(0xff656565),
-                          fontWeight: FontWeight.w600),
+                          // fontWeight: FontWeight.w600
+                          ),
                     ),
                     Text(
                       "$orderDate",
                       style: TextStyle(
-                          fontSize: 15,
+                          fontSize: smalltitle1,
                           color: Color(0xff656565),
-                          fontWeight: FontWeight.w600),
+                          // fontWeight: FontWeight.w600
+                          ),
                     ),
                   ],
                 ),
@@ -126,16 +132,18 @@ class OrderCoustomHistory extends StatelessWidget {
                     Text(
                       "${'deliveredOn'.tr} :",
                       style: TextStyle(
-                          fontSize: 15,
+                          fontSize: smalltitle1,
                           color: Color(0xff656565),
-                          fontWeight: FontWeight.w600),
+                          // fontWeight: FontWeight.w600
+                          ),
                     ),
                     Text(
                       "$deliverDate",
                       style: TextStyle(
-                          fontSize: 15,
+                          fontSize: smalltitle1,
                           color: Color(0xff656565),
-                          fontWeight: FontWeight.w600),
+                          // fontWeight: FontWeight.w600
+                          ),
                     ),
                   ],
                 ),
@@ -145,16 +153,18 @@ class OrderCoustomHistory extends StatelessWidget {
                     Text(
                       "${'paymentMethod'.tr} :",
                       style: TextStyle(
-                          fontSize: 15,
+                          fontSize: smalltitle1,
                           color: Color(0xff656565),
-                          fontWeight: FontWeight.w600),
+                          // fontWeight: FontWeight.w600
+                          ),
                     ),
                     Text(
                       "$paymentmethod",
                       style: TextStyle(
-                          fontSize: 15,
+                          fontSize: smalltitle1,
                           color: Color(0xff656565),
-                          fontWeight: FontWeight.w600),
+                          // fontWeight: FontWeight.w600
+                          ),
                     ),
                   ],
                 ),
@@ -176,15 +186,16 @@ class OrderCoustomHistory extends StatelessWidget {
               Text(
                 "${'orderstatus'.tr} : ",
                 style: TextStyle(
-                  fontSize: 15,
+                  fontSize: smalltitle1,
                   color: Colors.black,
-                  fontWeight: FontWeight.w600,
+                  // fontWeight: FontWeight.w600,
                 ),
               ),
               Text(
                 orderStatus.toString(),
                 style: TextStyle(
-                    fontSize: 15, color: color, fontWeight: FontWeight.w600),
+                    fontSize: smalltitle, color: color, // fontWeight: FontWeight.w600
+                    ),
               ),
             ],
           ),
@@ -200,14 +211,16 @@ class OrderCoustomHistory extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 12,
                             color: Colors.black,
-                            fontWeight: FontWeight.w600),
+                            // fontWeight: FontWeight.w600
+                            ),
                       ),
                       Text(
                         orderReason.toString(),
                         style: TextStyle(
                             fontSize: 12,
                             color: ColorConstnt.grey,
-                            fontWeight: FontWeight.w600),
+                            // fontWeight: FontWeight.w600
+                            ),
                       ),
                     ],
                   ),

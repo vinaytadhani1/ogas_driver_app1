@@ -47,7 +47,7 @@ class Background extends StatelessWidget {
                             style: const TextStyle(
                               fontSize: 22,
                               color: Colors.white,
-                              fontWeight: FontWeight.bold,
+                              // fontWeight: FontWeight.bold,
                             ),
                           )),
                     ],

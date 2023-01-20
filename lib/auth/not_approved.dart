@@ -2,6 +2,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../widgets/textstyle.dart';
+
 class NotApproved extends StatefulWidget {
   const NotApproved({Key? key}) : super(key: key);
 
@@ -22,24 +24,24 @@ class _NotApprovedState extends State<NotApproved> {
           Text(
             'wait'.tr,
             style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 18,
+              // fontWeight: FontWeight.bold,
+              fontSize: mediumtitle,
             ),
           ),
           SizedBox(height: 10),
           Text(
             'approve'.tr,
             style: TextStyle(
-              fontWeight: FontWeight.w500,
-              fontSize: 18,
+              // fontWeight: FontWeight.w500,
+              fontSize: mediumtitle,
             ),
           ),
           SizedBox(height: 10),
           Text(
             'comeBack'.tr,
             style: TextStyle(
-              fontWeight: FontWeight.w500,
-              fontSize: 18,
+              // fontWeight: FontWeight.w500,
+              fontSize: mediumtitle,
             ),
           ),
         ],

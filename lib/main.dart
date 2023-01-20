@@ -19,18 +19,21 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'auth/app_notifications.dart';
 import 'splash/view/splash_screen.dart';
 import 'util/language_constants.dart';
+import 'util/locale_constant.dart';
 import 'viewModel/check_driver_view_model.dart';
 
 SharedPreferences? pref;
 const AndroidNotificationChannel channel = AndroidNotificationChannel(
     'high_importance_channel', // id
     'High Importance Notifications', // title
-    description:
-        'This channel is used for important notifications.', // description
+    description: 'This channel is used for important notifications.', // description
     importance: Importance.high,
-    playSound: true);
-final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-    FlutterLocalNotificationsPlugin();
+    playSound: true,
+    enableVibration: true,
+    showBadge: true,
+    );
+
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp();
@@ -69,36 +72,49 @@ class MyApp extends StatefulWidget {
 
   @override
   State<MyApp> createState() => _MyAppState();
-  static void setLocale(BuildContext context, Locale newLocale) {
-    _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
-    state?.setLocale(newLocale);
-  }
+  // static void setLocale(BuildContext context, Locale newLocale) {
+  //   _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
+  //   state?.setLocale(newLocale);
+  // }
 }
 
 class _MyAppState extends State<MyApp> {
-  Locale? _locale;
+  // Locale? _locale;
 
-  setLocale(Locale locale) {
-    setState(() {
-      _locale = locale;
-    });
-  }
+  // setLocale(Locale locale) {
+  //   setState(() {
+  //     _locale = locale;
+  //   });
+  // }
+
+  // @override
+  // void didChangeDependencies() {
+  //   getLocale().then((locale) => {setLocale(locale)});
+  //   super.didChangeDependencies();
+  // }
 
   @override
   void didChangeDependencies() {
-    getLocale().then((locale) => {setLocale(locale)});
+    getLocale().then((locale) {
+      setState(() {
+        print("Preference Revoked ${locale.languageCode}");
+        Get.updateLocale(locale);
+        print("GET LOCALE Revoked ${Get.locale!.languageCode}");
+      });
+    });
     super.didChangeDependencies();
   }
-
+  
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       // localizationsDelegates: AppLocalizations.localizationsDelegates,
       // supportedLocales: AppLocalizations.supportedLocales,
-      locale: Locale('en','US'),  
+      locale: Get.deviceLocale,
       translations: LanguageTranslations(),
       debugShowCheckedModeBanner: false,
       title: 'Ogas Driver App',
+      fallbackLocale: const Locale('en','US'),
       theme: ThemeData(
         colorSchemeSeed: ColorConstnt.mainorange,
         fontFamily: "Roboto",

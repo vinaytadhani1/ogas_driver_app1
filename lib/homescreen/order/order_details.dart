@@ -15,6 +15,8 @@ import 'package:ogas_driver_app/widgets/background.dart';
 import 'package:ogas_driver_app/widgets/grey_shadow_border_model.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../../widgets/textstyle.dart';
+
 class OrderdetailsPage extends StatefulWidget {
   final List<OrderHistory>? orderHistory;
   final Datum? data;
@@ -50,18 +52,18 @@ class _OrdedDetailsPageState extends State<OrderdetailsPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '# ${'newtext'.tr} ${widget.data!.orderId}',
+                        '# ${'newtext'.tr} : ${widget.data!.orderId}',
                         style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                          fontSize: mediumtitle,
+                          // fontWeight: FontWeight.bold,
+                          color: ColorConstnt.black,
                         ),
                       ),
                       GridView.builder(
                         physics: NeverScrollableScrollPhysics(),
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
-                          childAspectRatio: 2.5,
+                          childAspectRatio:2.0,
                         ),
                         itemCount: widget.orderHistory?.length,
                         shrinkWrap: true,
@@ -73,16 +75,16 @@ class _OrdedDetailsPageState extends State<OrderdetailsPage> {
                                 Text(
                                   "${widget.orderHistory?[i].type == '1' ? 'refill'.tr : 'newtext'.tr} ${widget.orderHistory?[i].product?.productName} (${widget.orderHistory?[i].product?.category?.category} kg)",
                                   style: TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold,
+                                    fontSize: smalltitle,
+                                    // fontWeight: FontWeight.bold,
                                     color: Colors.black,
                                   ),
                                 ),
                                 Text(
                                   "${'qty'.tr} : ${widget.orderHistory?[i].quantity}",
                                   style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,
+                                      fontSize: smalltitle1,
+                                      // fontWeight: FontWeight.bold,
                                       color: Color(0xff656565),
                                       height: 1.5),
                                 ),
@@ -92,34 +94,32 @@ class _OrdedDetailsPageState extends State<OrderdetailsPage> {
                           );
                         },
                       ),
-                      SizedBox(height: MediaQuery.of(context).size.height / 230),
+                      // SizedBox(height: MediaQuery.of(context).size.height / 300),
                       const Divider(color: ColorConstnt.whitegrey),
                       SizedBox(height: MediaQuery.of(context).size.height / 230),
                       Text('delivereydate'.tr,
                         style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
+                          fontSize: smalltitle,
+                          // fontWeight: FontWeight.bold,
                           color: Colors.black,
                         ),
                       ),
                       Text(
                         DateFormat('dd-MM-yyyy').format(widget.data!.date!),
                         style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
+                            fontSize: smalltitle1,
+                            // fontWeight: FontWeight.bold,
                             color: Color(0xff656565),
                             height: 1.5),
                       ),
-                      SizedBox(
-                          height: MediaQuery.of(context).size.height / 230),
+                      SizedBox(height: MediaQuery.of(context).size.height / 230),
                       const Divider(color: ColorConstnt.whitegrey),
-                      SizedBox(
-                          height: MediaQuery.of(context).size.height / 230),
+                      SizedBox(height: MediaQuery.of(context).size.height / 230),
                       Text(
                         'deliverytime'.tr,
                         style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
+                          fontSize: smalltitle,
+                          // fontWeight: FontWeight.bold,
                           color: Colors.black,
                         ),
                       ),
@@ -132,51 +132,46 @@ class _OrdedDetailsPageState extends State<OrderdetailsPage> {
                                     ? "12PM - 3PM"
                                     : "3PM - 6PM",
                         style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
+                            fontSize: smalltitle1,
+                            // fontWeight: FontWeight.bold,
                             color: Color(0xff656565),
                             height: 1.5),
                       ),
-                      SizedBox(
-                          height: MediaQuery.of(context).size.height / 230),
+                      SizedBox(height: MediaQuery.of(context).size.height / 230),
                       const Divider(color: ColorConstnt.whitegrey),
                       SizedBox(
                           height: MediaQuery.of(context).size.height / 230),
                       Text(
                         'locatiion'.tr,
                         style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
+                          fontSize: smalltitle,
+                          // fontWeight: FontWeight.bold,
                           color: Colors.black,
                         ),
                       ),
                       Text(
                         "${widget.data?.address?.location}",
                         style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
+                            fontSize: smalltitle1,
+                            // fontWeight: FontWeight.bold,
                             color: Color(0xff656565),
                             height: 1.5),
                       ),
-                      SizedBox(
-                          height: MediaQuery.of(context).size.height / 230),
+                      SizedBox(height: MediaQuery.of(context).size.height / 230),
                       const Divider(color: ColorConstnt.whitegrey),
-                      SizedBox(
-                          height: MediaQuery.of(context).size.height / 230),
+                      SizedBox(height: MediaQuery.of(context).size.height / 230),
                       GestureDetector(
                         onTap: () {
                           Get.to(MapScreen(
-                            lat: double.parse(
-                                widget.data!.address!.latitude.toString()),
-                            long: double.parse(
-                                widget.data!.address!.longitude.toString()),
+                            lat: double.parse(widget.data!.address!.latitude.toString()),
+                            long: double.parse(widget.data!.address!.longitude.toString()),
                           ));
                         },
                         child: Text(
                           'viewmap'.tr,
                           style: TextStyle(
                             decoration: TextDecoration.underline,
-                            fontSize: 15,
+                            fontSize: smalltitle,
                             color: ColorConstnt.mainorange,
                           ),
                         ),
@@ -208,7 +203,7 @@ class _OrdedDetailsPageState extends State<OrderdetailsPage> {
               child: Text(
                 'cancel'.tr,
                 style: TextStyle(
-                  fontWeight: FontWeight.w900,
+                  // fontWeight: FontWeight.w900,
                   color: Color(0xffF44336),
                   fontSize: 18,
                 ),
@@ -240,7 +235,8 @@ class _OrdedDetailsPageState extends State<OrderdetailsPage> {
                       messageText: Text(
                         response.message.toString(),
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 18),
+                            // fontWeight: FontWeight.bold, 
+                            fontSize: 18),
                       ),
                     ));
 
@@ -254,7 +250,8 @@ class _OrdedDetailsPageState extends State<OrderdetailsPage> {
                       messageText: Text(
                         response.message.toString(),
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 18),
+                            // fontWeight: FontWeight.bold, 
+                            fontSize: 18),
                       ),
                     ));
 
@@ -269,7 +266,7 @@ class _OrdedDetailsPageState extends State<OrderdetailsPage> {
               child: Text(
                 'accept'.tr,
                 style: TextStyle(
-                  fontWeight: FontWeight.w900,
+                  // fontWeight: FontWeight.w900,
                   color: Colors.white,
                   fontSize: 18,
                 ),

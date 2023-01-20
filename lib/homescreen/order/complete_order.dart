@@ -19,6 +19,8 @@ import 'package:ogas_driver_app/viewModel/accept_order_view_model.dart';
 import 'package:ogas_driver_app/viewModel/cancel_order_view_model.dart';
 import 'package:ogas_driver_app/widgets/background.dart';
 
+import '../../widgets/textstyle.dart';
+
 class CompleteOrderPage extends StatefulWidget {
   final List<OrderHistory>? orderHistory;
   final OnDatum? data;
@@ -53,7 +55,7 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
           physics: BouncingScrollPhysics(),
           child: Container(
             padding: const EdgeInsets.only(
-                top: 50, left: 15, right: 15, bottom: 110),
+                top: 40, left: 15, right: 15, bottom: 110),
             child: Container(
               margin: const EdgeInsets.only(top: 7.5, bottom: 7.5),
               decoration: BoxDecoration(
@@ -92,9 +94,9 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                             Text(
                               "${'ongoing'.tr} ${widget.data?.orderInvoice}",
                               style: const TextStyle(
-                                fontSize: 15,
+                                fontSize: smalltitle,
                                 color: Colors.black,
-                                fontWeight: FontWeight.w600,
+                                // fontWeight: FontWeight.w600,
                               ),
                             ),
                           ],
@@ -105,17 +107,17 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                         Text(
                           "${'omr'.tr} : ${widget.data?.total}",
                           style: TextStyle(
-                            fontSize: 15,
+                            fontSize: smalltitle1,
                             color: Color(0xff656565),
-                            fontWeight: FontWeight.w600,
+                            // fontWeight: FontWeight.w600,
                           ),
                         ),
                         Text(
                           "${'address'.tr} : ${widget.data?.address?.location}",
                           style: TextStyle(
-                            fontSize: 15,
+                            fontSize: smalltitle1,
                             color: Color(0xff656565),
-                            fontWeight: FontWeight.w600,
+                            // fontWeight: FontWeight.w600,
                           ),
                         ),
                         const SizedBox(
@@ -148,16 +150,16 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                                   Text(
                                     "${widget.orderHistory?[i].type == "1" ? "${'refill'.tr}" : "${'newtext'.tr}"} ${widget.orderHistory?[i].product?.productName} (${widget.orderHistory?[i].product?.category?.category} kg)",
                                     style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
+                                      fontSize: smalltitle,
+                                      // fontWeight: FontWeight.bold,
                                       color: Colors.black,
                                     ),
                                   ),
                                   Text(
                                     "${'qty'.tr} : ${widget.orderHistory?[i].quantity}",
                                     style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold,
+                                        fontSize: smalltitle1,
+                                        // fontWeight: FontWeight.bold,
                                         color: Color(0xff656565),
                                         height: 1.5),
                                   ),
@@ -173,33 +175,27 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                         Text(
                           'delivereydate'.tr,
                           style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
+                            fontSize: smalltitle,
+                            // fontWeight: FontWeight.bold,
                             color: Colors.black,
                           ),
                         ),
                         Text(
                           DateFormat('dd-MM-yyyy').format(widget.data!.date!),
                           style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
+                              fontSize:smalltitle1,
+                              // fontWeight: FontWeight.bold,
                               color: Color(0xff656565),
                               height: 1.5),
                         ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height / 190,
-                        ),
-                        const Divider(
-                          color: ColorConstnt.whitegrey,
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height / 190,
-                        ),
+                        SizedBox(height: MediaQuery.of(context).size.height / 190,),
+                        const Divider(color: ColorConstnt.whitegrey,),
+                        SizedBox(height: MediaQuery.of(context).size.height / 190,),
                         Text(
                           'deliverytime'.tr,
                           style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
+                            fontSize: smalltitle,
+                            // fontWeight: FontWeight.bold,
                             color: Colors.black,
                           ),
                         ),
@@ -212,8 +208,8 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                                       ? "12PM - 3PM"
                                       : "3AM - 6PM",
                           style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
+                              fontSize: smalltitle1,
+                              // fontWeight: FontWeight.bold,
                               color: Color(0xff656565),
                               height: 1.5),
                         ),
@@ -229,16 +225,16 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                         Text(
                           'payment'.tr,
                           style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
+                            fontSize: smalltitle,
+                            // fontWeight: FontWeight.bold,
                             color: Colors.black,
                           ),
                         ),
                         Text(
                           widget.data?.paymentMethod ?? "",
                           style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
+                              fontSize: smalltitle1,
+                              // fontWeight: FontWeight.bold,
                               color: Color(0xff656565),
                               height: 1.5),
                         ),
@@ -254,16 +250,16 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                         Text(
                           'total'.tr,
                           style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
+                            fontSize: smalltitle,
+                            // fontWeight: FontWeight.bold,
                             color: Colors.black,
                           ),
                         ),
                         Text(
                           "OMR : ${widget.data?.total}",
                           style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
+                              fontSize: smalltitle1,
+                              // fontWeight: FontWeight.bold,
                               color: Color(0xff656565),
                               height: 1.5),
                         ),
@@ -285,9 +281,9 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                           child: Text(
                             'viewmap'.tr,
                             style: TextStyle(
-                              fontWeight: FontWeight.w600,
+                              // fontWeight: FontWeight.w600,
                               decoration: TextDecoration.underline,
-                              fontSize: 16,
+                              fontSize: smalltitle,
                               color: ColorConstnt.mainorange,
                             ),
                           ),
@@ -336,7 +332,7 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                               Text(
                                 'selectreasonforcancelorder'.tr,
                                 style: TextStyle(
-                                  fontWeight: FontWeight.bold,
+                                  // fontWeight: FontWeight.bold,
                                   fontSize: 18,
                                   color: Colors.black,
                                 ),
@@ -364,7 +360,7 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                                 title: Text(
                                   'customernotavailableathome'.tr,
                                   style: TextStyle(
-                                    fontWeight: FontWeight.w400,
+                                    // fontWeight: FontWeight.w400,
                                     fontSize: 15,
                                     color: Color(0xff656565),
                                   ),
@@ -399,7 +395,7 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                                 title: Text(
                                   'locationnotclear'.tr,
                                   style: TextStyle(
-                                    fontWeight: FontWeight.w400,
+                                    // fontWeight: FontWeight.w400,
                                     fontSize: 15,
                                     color: Color(0xff656565),
                                   ),
@@ -434,7 +430,7 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                                 title: Text(
                                   'otherreason'.tr,
                                   style: TextStyle(
-                                    fontWeight: FontWeight.w400,
+                                    // fontWeight: FontWeight.w400,
                                     fontSize: 15,
                                     color: Color(0xff7A7A7A),
                                   ),
@@ -467,7 +463,7 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                                     child: Text(
                                       'cancel'.tr,
                                       style: TextStyle(
-                                        fontWeight: FontWeight.bold,
+                                        // fontWeight: FontWeight.bold,
                                         color: Color(0xff1C75BC),
                                         fontSize: 17,
                                       ),
@@ -484,21 +480,15 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                                       ),
                                     ),
                                     onPressed: () async {
-                                      cancelOrderReq.orderId =
-                                          widget.data?.id.toString();
+                                      cancelOrderReq.orderId = widget.data?.id.toString();
                                       cancelOrderReq.status = '5';
                                       cancelOrderReq.cancelReason = reason;
                                       setState(() {});
-                                      await cancelOrderViewModel
-                                          .cancelOrder(cancelOrderReq);
-                                      if (cancelOrderViewModel
-                                              .cancelOrderApiResponse.status ==
-                                          Status.COMPLETE) {
-                                        CancelOrderResponseModel response =
-                                            cancelOrderViewModel
-                                                .cancelOrderApiResponse.data;
-                                        print(
-                                            'CANCEL ORDER status ${response.success}');
+                                      await cancelOrderViewModel.cancelOrder(cancelOrderReq);
+                                      if (cancelOrderViewModel.cancelOrderApiResponse.status == Status.COMPLETE) { 
+                                            CancelOrderResponseModel response =
+                                            cancelOrderViewModel.cancelOrderApiResponse.data;
+                                        print('CANCEL ORDER status ${response.success}');
 
                                         if (response.success == false) {
                                           Get.showSnackbar(GetSnackBar(
@@ -508,7 +498,7 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                                             messageText: Text(
                                               response.message.toString(),
                                               style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
+                                                  // fontWeight: FontWeight.bold,
                                                   fontSize: 18),
                                             ),
                                           ));
@@ -523,7 +513,7 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                                             messageText: Text(
                                               response.message.toString(),
                                               style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
+                                                  // fontWeight: FontWeight.bold,
                                                   fontSize: 18),
                                             ),
                                           ));
@@ -540,7 +530,7 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                                     child: Text(
                                       'ok'.tr,
                                       style: TextStyle(
-                                        fontWeight: FontWeight.bold,
+                                        // fontWeight: FontWeight.bold,
                                         color: Color(0xFFFFFFFF),
                                         fontSize: 17,
                                       ),
@@ -557,7 +547,7 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
               child: Text(
                 'cancelorder'.tr,
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,
+                  // fontWeight: FontWeight.bold,
                   color: Color(0xffF44336),
                   fontSize: 17,
                 ),
@@ -590,7 +580,8 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                       messageText: Text(
                         response.message.toString(),
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 18),
+                            // fontWeight: FontWeight.bold, 
+                            fontSize: 18),
                       ),
                     ));
 
@@ -606,7 +597,8 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                             ? 'Order Delivered'
                             : 'Order is On The Way',
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 18),
+                            // fontWeight: FontWeight.bold, 
+                            fontSize: 18),
                       ),
                     ));
 
@@ -624,7 +616,7 @@ class CompleteOrdeStatePage extends State<CompleteOrderPage> {
                     : 'outfordelivery'.tr
                         .toUpperCase(),
                 style: TextStyle(
-                  fontWeight: FontWeight.w900,
+                  // fontWeight: FontWeight.w900,
                   color: Color(0xFFFFFFFF),
                   fontSize: 15,
                 ),

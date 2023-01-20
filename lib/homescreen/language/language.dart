@@ -1,20 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ogas_driver_app/Model/apis/pref_string.dart';
-import 'package:ogas_driver_app/homescreen/language/controller.dart';
 import 'package:ogas_driver_app/util/language.dart';
+import 'package:ogas_driver_app/util/locale_constant.dart';
 import 'package:ogas_driver_app/widgets/background.dart';
 import 'package:ogas_driver_app/util/colors.dart';
 import 'package:ogas_driver_app/widgets/language_model_Custom.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../../main.dart';
-import '../../util/language_constants.dart';
-
 
 int? ggvalue = 0;
-String method = 'English';
 
 final List locales = [
     {
@@ -27,9 +21,15 @@ final List locales = [
     }
   ];
 
-updateLocale(Locale locale , BuildContext context ){
-    Get.updateLocale(locale );
-  }
+updateLocale(Locale locale, BuildContext context) {
+  // Navigator.of(context).pop();
+  setLocale(locale.languageCode, locale.countryCode??"");
+  Get.updateLocale(locale);
+}
+
+// updateLocale(Locale locale , BuildContext context ){
+//     Get.updateLocale(locale );
+//   }
 class LanguagePage extends StatefulWidget {
   const LanguagePage({Key? key}) : super(key: key);
 
@@ -39,26 +39,25 @@ class LanguagePage extends StatefulWidget {
 
 class _LanguagePageState extends State<LanguagePage> {
   
-  String? lang = 'English';
+  Language? language;
+  String? lang;
+  
   getLanguage() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     lang = pref.getString(PrefString.language);
-    if (lang == null) {
-      lang = 'English';
-      setState(() {});
-    }
-    print(lang);
     ggvalue = lang == 'English' ? 0 : 1;
     setState(() {});
   }
-
-  // Controller controller = Get.put(Controller());
+  
 
   @override
   void initState() {
     getLanguage();
     super.initState();
   }
+
+  // Controller controller = Get.put(Controller());
+
 
   @override
   Widget build(BuildContext context) {
@@ -125,7 +124,7 @@ class _LanguagePageState extends State<LanguagePage> {
             //                       Text(locales[index]['name'].toString(),
             //                         // "Arabic",
             //                         style: const TextStyle(
-            //                             fontSize: 17, fontWeight: FontWeight.bold),
+            //                             fontSize: 17, // fontWeight: FontWeight.bold),
             //                       ),
             //                     ],
             //                   ),
@@ -162,14 +161,13 @@ class _LanguagePageState extends State<LanguagePage> {
               height: 50,
               width: 340,
               onTap: (() async {
-                Locale _locale = await setLocale(ENGLISH);
-                MyApp.setLocale(context, _locale);
-                updateLocale(locales[0]['locale'],context);
-                // controller.changeLanguage('en', 'US');
+                // Locale _locale = await setLocale(ENGLISH);
+                // MyApp.setLocale(context, _locale);
                 SharedPreferences pref = await SharedPreferences.getInstance();
                 pref.setString(PrefString.language, 'English');
+                updateLocale(locales[0]['locale'],context,);
+                setState(() {});
                 ggvalue = 0;
-                // method = 'English';
                 setState(() {});
               }),
               fontSize: 15,
@@ -181,9 +179,9 @@ class _LanguagePageState extends State<LanguagePage> {
               onChanged: (value) async {
                 SharedPreferences pref = await SharedPreferences.getInstance();
                 pref.setString(PrefString.language, 'English');
-                ggvalue = 0;
-                // method = 'English';
+                updateLocale(locales[0]['locale'],context,);
                 setState(() {});
+                ggvalue = 0;
               },
             ),
             SizedBox(height: 15),
@@ -191,13 +189,11 @@ class _LanguagePageState extends State<LanguagePage> {
               lname: "عَمّان",
               onTap: () async {
                 ggvalue = 1;
-                Locale _locale = await setLocale(ARABIC);
-                MyApp.setLocale(context, _locale);
-                updateLocale(locales[1]['locale'],context);
-                // controller.changeLanguage('ar', 'OM');
+                // Locale _locale = await setLocale(ARABIC);
+                // MyApp.setLocale(context, _locale);
                 SharedPreferences pref = await SharedPreferences.getInstance();
                 pref.setString(PrefString.language, 'Arabic');
-                // method = 'عَمّان';
+                updateLocale(locales[1]['locale'],context,);
                 setState(() {});
               },
               height: 50,
@@ -211,11 +207,13 @@ class _LanguagePageState extends State<LanguagePage> {
               onChanged: (value) async {
                 SharedPreferences pref = await SharedPreferences.getInstance();
                 pref.setString(PrefString.language, 'Arabic');
+                updateLocale(locales[1]['locale'],context,);
+                setState(() {});
                 ggvalue = 1;
-                // method = 'عَمّان';
                 setState(() {});
               },
             ),
+            
           ],
         ),
       ),

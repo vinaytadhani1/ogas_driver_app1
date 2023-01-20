@@ -191,7 +191,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             "${'newtext'.tr} (${data.length})",
                             style: TextStyle(
                                 color: Colors.black,
-                                fontWeight: FontWeight.bold,
+                                // fontWeight: FontWeight.bold,
                                 fontSize: 18),
                           ),
                         ),
@@ -200,7 +200,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             "${'ongoing'.tr} (${onData.length})",
                             style: TextStyle(
                                 color: Colors.black,
-                                fontWeight: FontWeight.bold,
+                                // fontWeight: FontWeight.bold,
                                 fontSize: 18),
                           ),
                         ),
@@ -221,7 +221,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   'noNew'.tr,
                                   style: const TextStyle(
                                     fontSize: 16,
-                                    fontWeight: FontWeight.w600,
+                                    // fontWeight: FontWeight.w600,
                                   ),
                                 ),
                               )
@@ -261,8 +261,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     print(totalDistance);
                                   }
                                   return OrderListCard(
-                                    orderNumber:
-                                        "${'newOrder'.tr} ${data[i].orderId}",
+                                    orderNumber:"${'newOrder'.tr} : ${data[i].orderId}",
                                     address: data[i].address?.location,
                                     omr: data[i].total.toString(),
                                     onTap: () {
@@ -285,7 +284,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   'noOngoing'.tr,
                                   style: const TextStyle(
                                     fontSize: 16,
-                                    fontWeight: FontWeight.w600,
+                                    // fontWeight: FontWeight.w600,
                                   ),
                                 ),
                               )
@@ -296,7 +295,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 itemBuilder: (BuildContext context, i) {
                                   return OrderListCard(
                                     orderNumber:
-                                        "${'ongoingOrder'.tr} ${onData[i].orderInvoice}",
+                                        "${'ongoingOrder'.tr} : ${onData[i].orderInvoice}",
                                     address: onData[i].address?.location,
                                     omr: onData[i].total.toString(),
                                     onTap: () {

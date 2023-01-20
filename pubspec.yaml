@@ -50,6 +50,7 @@ dependencies:
   shared_preferences: ^2.0.15
   sizer: ^2.0.15
   sms_autofill: ^2.2.0
+  package_info_plus: ^3.0.2
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -72,7 +73,6 @@ flutter:
     - asset/
     - asset/icons/
     - asset/icons/drawerList_icon/
-    - asset/language_json/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

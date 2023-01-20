@@ -11,4 +11,5 @@ class ColorConstnt {
   static const Color acceptColor = Color(0xFF4CAF50);
   static const Color maincolor = Color(0xff092C4C);
   static const Color mainbutton = Color(0xffF2994B);
+  static const Color textboxTextColor = Color(0xff212121);
 }

@@ -44,85 +44,76 @@ class _DrawerpageState extends State<Drawerpage> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 50),
-      child: ClipRRect(
-        borderRadius: ggvalue == 0 ? BorderRadius.only(
-          bottomRight: Radius.circular(250),
-        ) : BorderRadius.only(
-          bottomLeft: Radius.circular(250),
-        ),
-        child: Drawer(
-          elevation: 2,
-          width: 280,
-          child: Column(
-            children: [
-              Padding(
-                padding: ggvalue == 0 ? EdgeInsets.only(top: 35,left: 5,) :
-                                        EdgeInsets.only(top: 35,right: 5,),
-                child: ListTile(
-                  leading: CircleAvatar(
-                    radius: 30,
-                    backgroundColor: ColorConstnt.mainbutton,
-                    foregroundColor: Colors.white,
-                    child: Text('${name?[0].toString()}',
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        )),
-                  ),
-                  title: Text(name.toString(),
+    return SafeArea(
+      child: Drawer(
+        elevation: 2,
+        // width: 280,
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 5,vertical: 8),
+              child: ListTile(
+                leading: CircleAvatar(
+                  radius: 30,
+                  backgroundColor: ColorConstnt.mainbutton,
+                  foregroundColor: Colors.white,
+                  child: Text('${name?[0].toString()}',
                       style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 24,
+                        // fontWeight: FontWeight.bold,
                       )),
-                  subtitle: Text("+91 $phone",softWrap: true,
-                      style: TextStyle(fontSize: 15, height: 1.8,),
-                  ),
+                ),
+                title: Text(name.toString(),
+                    style: TextStyle(
+                      fontSize: 18,
+                      // fontWeight: FontWeight.bold,
+                    )),
+                subtitle: Text("+91 $phone",softWrap: true,
+                    style: TextStyle(fontSize: 15, height: 1.8,),
                 ),
               ),
-              const Divider(
-                color: ColorConstnt.grey,
-              ),
-              CustomDrawerList("asset/icons/drawerList_icon/profile.png",
-                  'profile'.tr, () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: ((context) => ProfilePage()),
-                  ),
-                );
-              }),
-              CustomDrawerList("asset/icons/drawerList_icon/cart.png",
-                  'orderHistory'.tr, () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: ((context) => OrderHistoryPage()),
-                  ),
-                );
-              }),
-              CustomDrawerList("asset/icons/drawerList_icon/language.png",
-                  'language'.tr, () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: ((context) => LanguagePage()),
-                  ),
-                );
-              }),
-              CustomDrawerList("asset/icons/drawerList_icon/sign_out.png",
-                  'signOut'.tr, () async {
-                showLoadingDialog(context: context);
-                SharedPreferences pref = await SharedPreferences.getInstance();
-                pref.clear();
-                pref.setString(PrefString.loggedIn, 'loggedOut');
-                await FirebaseAuth.instance.signOut();
-                hideLoadingDialog(context: context);
-                Get.offAll(SplashScreen());
-              }),
-            ],
-          ),
+            ),
+            const Divider(
+              color: ColorConstnt.grey,
+            ),
+            CustomDrawerList("asset/icons/drawerList_icon/profile.png",
+                'profile'.tr, () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: ((context) => ProfilePage()),
+                ),
+              );
+            }),
+            CustomDrawerList("asset/icons/drawerList_icon/cart.png",
+                'orderHistory'.tr, () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: ((context) => OrderHistoryPage()),
+                ),
+              );
+            }),
+            CustomDrawerList("asset/icons/drawerList_icon/language.png",
+                'language'.tr, () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: ((context) => LanguagePage()),
+                ),
+              );
+            }),
+            CustomDrawerList("asset/icons/drawerList_icon/sign_out.png",
+                'signOut'.tr, () async {
+              showLoadingDialog(context: context);
+              SharedPreferences pref = await SharedPreferences.getInstance();
+              pref.clear();
+              pref.setString(PrefString.loggedIn, 'loggedOut');
+              await FirebaseAuth.instance.signOut();
+              hideLoadingDialog(context: context);
+              Get.offAll(SplashScreen());
+            }),
+          ],
         ),
       ),
     );

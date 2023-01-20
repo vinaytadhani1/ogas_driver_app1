@@ -66,7 +66,8 @@ class _LanguageModelState extends State<LanguageModel> {
                 Text(
                   widget.lname ?? "",
                   style: TextStyle(
-                      fontSize: widget.fontSize, fontWeight: FontWeight.bold),
+                      fontSize: widget.fontSize, // fontWeight: FontWeight.bold
+                      ),
                 ),
               ],
             ),

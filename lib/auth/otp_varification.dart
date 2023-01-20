@@ -93,7 +93,8 @@ class _OtpVarificationState extends State<OtpVarification> {
           snackPosition: SnackPosition.TOP,
           messageText: Text(
             'verified'.tr,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            style: TextStyle(// fontWeight: FontWeight.bold, 
+            fontSize: 18),
           ),
         ));
       }
@@ -141,7 +142,8 @@ class _OtpVarificationState extends State<OtpVarification> {
             snackPosition: SnackPosition.TOP,
             messageText: Text(
               AppLocalizations.of(context!)!.verificationFailed,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: TextStyle(// fontWeight: FontWeight.bold, 
+              fontSize: 18),
             ),
           ));
         },
@@ -191,8 +193,8 @@ class _OtpVarificationState extends State<OtpVarification> {
                         style: TextStyle(
                             fontSize: 35,
                             color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: "DMSans"),
+                            // fontWeight: FontWeight.bold,
+                            ),
                       ),
                     ),
                   ],
@@ -233,8 +235,8 @@ class _OtpVarificationState extends State<OtpVarification> {
                                 style: TextStyle(
                                   color: ColorConstnt.grey,
                                   fontSize: 16,
-                                  fontFamily: "DMSans",
-                                  fontWeight: FontWeight.w500,
+                                  
+                                  // fontWeight: FontWeight.w500,
                                 )),
                       ),
                       Container(
@@ -246,8 +248,7 @@ class _OtpVarificationState extends State<OtpVarification> {
                             style: TextStyle(
                               color: ColorConstnt.black,
                               fontSize: 16,
-                              fontFamily: "DMSans",
-                              fontWeight: FontWeight.w600,
+                              // fontWeight: FontWeight.w600,
                             )),
                       ),
                       PinFieldAutoFill(
@@ -317,7 +318,7 @@ class _OtpVarificationState extends State<OtpVarification> {
                                 ? ColorConstnt.grey
                                 : ColorConstnt.mainorange,
                             fontSize: 16,
-                            fontWeight: FontWeight.bold,
+                            // fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
@@ -333,8 +334,7 @@ class _OtpVarificationState extends State<OtpVarification> {
                                 style: TextStyle(
                                   color: ColorConstnt.grey,
                                   fontSize: 15,
-                                  fontFamily: "DMSans",
-                                  fontWeight: FontWeight.w500,
+                                  // fontWeight: FontWeight.w500,
                                 ),
                               ),
                               GestureDetector(
@@ -357,8 +357,7 @@ class _OtpVarificationState extends State<OtpVarification> {
                                     color: ColorConstnt.black.withOpacity(
                                         timerText == "00 : 00" ? 1 : 0.5),
                                     fontSize: 15,
-                                    fontFamily: "DMSans",
-                                    fontWeight: FontWeight.w500,
+                                    // fontWeight: FontWeight.w500,
                                   ),
                                 ),
                               ),

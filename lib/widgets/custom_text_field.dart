@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:ogas_driver_app/util/colors.dart';
 
 import '../homescreen/language/language.dart';
+import 'textstyle.dart';
 
 class CustomTextField extends StatelessWidget {
   final String? mName;
@@ -39,11 +40,7 @@ class CustomTextField extends StatelessWidget {
           ),
           alignment: ggvalue == 0 ?  Alignment.topLeft : Alignment.topRight,
           child: Text(mName ?? "",
-              style: TextStyle(
-                color: const Color(0xff212121).withOpacity(0.9),
-                fontSize: 22,
-                fontWeight: FontWeight.w600,
-              )),
+              style: largetitleStyle ),
         ),
         Padding(
           padding: const EdgeInsets.only(
@@ -61,7 +58,7 @@ class CustomTextField extends StatelessWidget {
               suffixIcon: suffixIcon,
               prefixIcon: prefixIcon,
               hintStyle: const TextStyle(
-                fontWeight: FontWeight.w400,
+                // fontWeight: FontWeight.w400,
                 color: ColorConstnt.grey,
                 fontSize: 16,
               ),

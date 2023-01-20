@@ -11,6 +11,7 @@ import 'package:ogas_driver_app/widgets/background.dart';
 import 'package:ogas_driver_app/util/colors.dart';
 import 'package:ogas_driver_app/util/loading_dialog.dart';
 import 'package:ogas_driver_app/widgets/custom_text_field.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -64,6 +65,7 @@ class _ProfilePageState extends State<ProfilePage> {
   void initState() {
     super.initState();
     getprofileData();
+    _initPackageInfo();
   }
 
   final _form = GlobalKey<FormState>();
@@ -122,6 +124,10 @@ class _ProfilePageState extends State<ProfilePage> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height / 6,
                   ),
+                   _infoTile('Package name', _packageInfo.packageName),
+                   SizedBox(
+                    height: MediaQuery.of(context).size.height / 6,
+                  ),
                 ],
               ),
             ),
@@ -178,7 +184,8 @@ class _ProfilePageState extends State<ProfilePage> {
                   snackPosition: SnackPosition.TOP,
                   messageText: Text(
                     'Profile Saved Successfuly',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    style: TextStyle(// fontWeight: FontWeight.bold, 
+                    fontSize: 18),
                   ),
                 ));
                 hideLoadingDialog(context: context);
@@ -194,7 +201,8 @@ class _ProfilePageState extends State<ProfilePage> {
                   snackPosition: SnackPosition.TOP,
                   messageText: Text(
                     response.message.toString(),
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    style: TextStyle(// fontWeight: FontWeight.bold, 
+                    fontSize: 18),
                   ),
                 ));
                 return;
@@ -207,11 +215,34 @@ class _ProfilePageState extends State<ProfilePage> {
           style: TextStyle(
             color: Colors.white,
             fontSize: 20,
-            fontWeight: FontWeight.w900,
+            // fontWeight: FontWeight.w900,
           ),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
+
+  PackageInfo _packageInfo = PackageInfo(
+    appName: 'Unknown',
+    packageName: 'Unknown',
+    version: 'Unknown',
+    buildNumber: 'Unknown',
+    buildSignature: 'Unknown',
+  );
+
+  Future<void> _initPackageInfo() async {
+    final info = await PackageInfo.fromPlatform();
+    setState(() {
+      _packageInfo = info;
+    });
+  }
+
+  Widget _infoTile(String title, String subtitle) {
+    return ListTile(
+      title: Text(title,style: TextStyle(color: Colors.black),),
+      subtitle: Text(subtitle.isEmpty ? 'Not set' : subtitle,style: TextStyle(color: Colors.black),),
+    );
+  }
+
 }

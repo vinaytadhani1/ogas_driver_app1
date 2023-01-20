@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:ogas_driver_app/util/colors.dart';
 import 'package:ogas_driver_app/widgets/grey_shadow_border_model.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:ogas_driver_app/widgets/textstyle.dart';
 
 class OrderListCard extends StatelessWidget {
   final String? orderNumber;
@@ -37,7 +38,7 @@ class OrderListCard extends StatelessWidget {
               children: [
                 Text(
                   orderNumber.toString(),
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                  style: smalltitleStyle,
                 ),
               ],
             ),
@@ -51,11 +52,7 @@ class OrderListCard extends StatelessWidget {
                     children: [
                       Text(
                         "OMR : ${omr.toString()}",
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xff656565),
-                        ),
+                        style: smalltitleStyle1,
                       ),
                       Container(
                         width: MediaQuery.of(context).size.width,
@@ -63,9 +60,9 @@ class OrderListCard extends StatelessWidget {
                           "${'address'.tr} : ${address.toString()}",
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                            fontSize: 12,
+                            fontSize: 14,
 
-                            fontWeight: FontWeight.bold,
+                            // fontWeight: FontWeight.bold,
                             overflow: TextOverflow.ellipsis,
                             color: Color(0xff656565),
                           ),
@@ -87,7 +84,7 @@ class OrderListCard extends StatelessWidget {
                       'orderdetails'.tr,
                       style: TextStyle(
                         fontSize: 12,
-                        fontWeight: FontWeight.bold,
+                        // fontWeight: FontWeight.bold,
                         color: ColorConstnt.white,
                       ),
                     ),

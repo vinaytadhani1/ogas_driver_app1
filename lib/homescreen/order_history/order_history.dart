@@ -72,7 +72,7 @@ class _OrderHistoryPageState extends State<OrderHistoryPage> {
                 'noOrderHistory'.tr,
                 style: const TextStyle(
                   fontSize: 16,
-                  fontWeight: FontWeight.w600,
+                  // fontWeight: FontWeight.w600,
                 ),
               ),
             )
@@ -117,14 +117,16 @@ class _OrderHistoryPageState extends State<OrderHistoryPage> {
                                     style: TextStyle(
                                         fontSize: 15,
                                         color: Colors.black,
-                                        fontWeight: FontWeight.w600),
+                                        // fontWeight: FontWeight.w600
+                                        ),
                                   ),
                                   Text(
                                     "${'qty'.tr} : ${onData![i].orderHistory![i2].quantity}",
                                     style: TextStyle(
                                         fontSize: 15,
                                         color: Color(0xff656565),
-                                        fontWeight: FontWeight.w600),
+                                        // fontWeight: FontWeight.w600
+                                        ),
                                   ),
                                 ],
                               ),
