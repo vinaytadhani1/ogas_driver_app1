@@ -76,19 +76,20 @@ class _SplashScreenState extends State<SplashScreen> {
           pref.setString(PrefString.token, response.data!.token.toString());
           setState(() {});
           print('LOGIN status ${response.success}');
-          if (response.success == true) {
-            if (status2 == null || status2 == 'null') {
-              Get.offAll(NotApproved());
+            if (response.success == true) {
+              if (status2 == null || status2 == 'null') {
+                Get.offAll(NotApproved());
+              } else {
+                Get.offAll(() => HomePage());
+              }
             } else {
-              Get.offAll(() => HomePage());
+              Get.offAll(NotApproved());
             }
-          } else {
-            Get.offAll(NotApproved());
-          }
         }
       } else {
         Get.offAll(() => SignUpScreen(sign: false));
       }
+      
     });
   }
 

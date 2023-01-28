@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ogas_driver_app/Model/apis/pref_string.dart';
@@ -22,14 +24,10 @@ final List locales = [
   ];
 
 updateLocale(Locale locale, BuildContext context) {
-  // Navigator.of(context).pop();
   setLocale(locale.languageCode, locale.countryCode??"");
   Get.updateLocale(locale);
 }
 
-// updateLocale(Locale locale , BuildContext context ){
-//     Get.updateLocale(locale );
-//   }
 class LanguagePage extends StatefulWidget {
   const LanguagePage({Key? key}) : super(key: key);
 
@@ -165,7 +163,7 @@ class _LanguagePageState extends State<LanguagePage> {
                 // MyApp.setLocale(context, _locale);
                 SharedPreferences pref = await SharedPreferences.getInstance();
                 pref.setString(PrefString.language, 'English');
-                updateLocale(locales[0]['locale'],context,);
+                updateLocale(locales[0]['locale'],context);
                 setState(() {});
                 ggvalue = 0;
                 setState(() {});

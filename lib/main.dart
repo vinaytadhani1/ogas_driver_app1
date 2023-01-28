@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 import 'package:ogas_driver_app/util/language_translatons.dart';
+import 'package:ogas_driver_app/util/locale_constant.dart';
 import 'package:ogas_driver_app/viewModel/accept_order_view_model.dart';
 import 'package:ogas_driver_app/viewModel/cancel_order_view_model.dart';
 import 'package:ogas_driver_app/viewModel/edit_profile_view_model.dart';
@@ -14,12 +15,8 @@ import 'package:ogas_driver_app/viewModel/login_view_model.dart';
 import 'package:ogas_driver_app/viewModel/signup_view_model.dart';
 import 'package:ogas_driver_app/util/colors.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sizer/sizer.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'auth/app_notifications.dart';
 import 'splash/view/splash_screen.dart';
-import 'util/language_constants.dart';
-import 'util/locale_constant.dart';
 import 'viewModel/check_driver_view_model.dart';
 
 SharedPreferences? pref;
@@ -79,14 +76,13 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  
   // Locale? _locale;
-
   // setLocale(Locale locale) {
   //   setState(() {
   //     _locale = locale;
   //   });
   // }
-
   // @override
   // void didChangeDependencies() {
   //   getLocale().then((locale) => {setLocale(locale)});
@@ -108,8 +104,6 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      // localizationsDelegates: AppLocalizations.localizationsDelegates,
-      // supportedLocales: AppLocalizations.supportedLocales,
       locale: Get.deviceLocale,
       translations: LanguageTranslations(),
       debugShowCheckedModeBanner: false,

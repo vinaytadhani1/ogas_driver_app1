@@ -29,6 +29,7 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  
   String? naam;
   String? emaill;
   String? licenseNumberr;
@@ -38,6 +39,7 @@ class _ProfilePageState extends State<ProfilePage> {
   EditProfileViewModel editProfileViewModel = Get.find();
   EditProfileRequestModel editProfileReq = EditProfileRequestModel();
   EditProfileResponseModel? response;
+  
   getprofileData() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     naam = pref.getString(PrefString.name);
@@ -65,7 +67,7 @@ class _ProfilePageState extends State<ProfilePage> {
   void initState() {
     super.initState();
     getprofileData();
-    _initPackageInfo();
+    // _initPackageInfo();
   }
 
   final _form = GlobalKey<FormState>();
@@ -124,10 +126,10 @@ class _ProfilePageState extends State<ProfilePage> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height / 6,
                   ),
-                   _infoTile('Package name', _packageInfo.packageName),
-                   SizedBox(
-                    height: MediaQuery.of(context).size.height / 6,
-                  ),
+                  //  _infoTile('Package name', _packageInfo.packageName),
+                  //  SizedBox(
+                  //   height: MediaQuery.of(context).size.height / 6,
+                  // ),
                 ],
               ),
             ),
@@ -223,26 +225,26 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  PackageInfo _packageInfo = PackageInfo(
-    appName: 'Unknown',
-    packageName: 'Unknown',
-    version: 'Unknown',
-    buildNumber: 'Unknown',
-    buildSignature: 'Unknown',
-  );
+  // PackageInfo _packageInfo = PackageInfo(
+  //   appName: 'Unknown',
+  //   packageName: 'Unknown',
+  //   version: 'Unknown',
+  //   buildNumber: 'Unknown',
+  //   buildSignature: 'Unknown',
+  // );
 
-  Future<void> _initPackageInfo() async {
-    final info = await PackageInfo.fromPlatform();
-    setState(() {
-      _packageInfo = info;
-    });
-  }
+  // Future<void> _initPackageInfo() async {
+  //   final info = await PackageInfo.fromPlatform();
+  //   setState(() {
+  //     _packageInfo = info;
+  //   });
+  // }
 
-  Widget _infoTile(String title, String subtitle) {
-    return ListTile(
-      title: Text(title,style: TextStyle(color: Colors.black),),
-      subtitle: Text(subtitle.isEmpty ? 'Not set' : subtitle,style: TextStyle(color: Colors.black),),
-    );
-  }
+  // Widget _infoTile(String title, String subtitle) {
+  //   return ListTile(
+  //     title: Text(title,style: TextStyle(color: Colors.black),),
+  //     subtitle: Text(subtitle.isEmpty ? 'Not set' : subtitle,style: TextStyle(color: Colors.black),),
+  //   );
+  // }
 
 }

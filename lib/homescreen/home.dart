@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   getToken() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     var token = pref.getString(PrefString.token);
-    print('***************$token');
+    print('********T*******$token');
   }
 
   LatLng? currentPostion;

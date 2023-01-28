@@ -1,4 +1,6 @@
 
+// ignore_for_file: equal_keys_in_map
+
 import 'package:get/get.dart';
 
 class LanguageTranslations extends Translations{
@@ -160,7 +162,6 @@ class LanguageTranslations extends Translations{
         "verified":"تم التحقق بنجاح",
         "invalidOtp":"رمز التحقق غير صالح",
         "error":"خطأ",
-        "ok":"موافق",
         "verificationFailed":"فشل التحقق من رقم الهاتف ، يرجى التحقق من رقم الهاتف",
         "submit":"إرسال",
         "number":"لا يمكن أن يكون الرقم فارغًا",

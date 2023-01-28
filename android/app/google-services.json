@@ -22,6 +22,14 @@
           }
         },
         {
+          "client_id": "712044319473-s0dk4p130sg92548osmreju5ih506nmj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.adsum.ogas_driver_app",
+            "certificate_hash": "64e4094e72e442cc454c033ec8161dfc95295072"
+          }
+        },
+        {
           "client_id": "712044319473-cvsffl8i9oe78spphlaveiqq7e3mjs9f.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -45,10 +45,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   String code = '';
   String countryCodes = '+91';
 
-  signin({
-    @required BuildContext? context,
-    @required String? phone,
-  }) async {
+  signin({@required BuildContext? context,@required String? phone,}) async {
     print(" -=-=-=-= Start signup function =-=-=-=-");
     await SharedPreferences.getInstance();
     bool isSuccess = false;
@@ -188,7 +185,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             minimumSize: const Size(200, 50),
-                            primary: ColorConstnt.mainbutton,
+                            backgroundColor: ColorConstnt.mainbutton,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(25),
                             ),

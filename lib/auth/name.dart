@@ -80,10 +80,8 @@ class _HomeState extends State<NamePage> {
           SharedPreferences pref = await SharedPreferences.getInstance();
           pref.setString(PrefString.name, fullNameController.text);
           pref.setString(PrefString.email, emailController.text);
-          pref.setString(
-              PrefString.licenseNumber, licensenumberController.text);
-          pref.setString(
-              PrefString.vehicleNumber, vehiclenumberController.text);
+          pref.setString(PrefString.licenseNumber, licensenumberController.text);
+          pref.setString(PrefString.vehicleNumber, vehiclenumberController.text);
           var token = pref.getString(PrefString.deviceToken);
           signupReq.name = fullNameController.text;
           signupReq.mobile = ppho;
@@ -94,8 +92,7 @@ class _HomeState extends State<NamePage> {
           FocusScope.of(context).unfocus();
           await signupViewModel.signup(signupReq);
           if (signupViewModel.signupApiResponse.status == Status.COMPLETE) {
-            SignupResponseModel response =
-                signupViewModel.signupApiResponse.data;
+            SignupResponseModel response = signupViewModel.signupApiResponse.data;
             print('SIGNUP status ${response.success}');
 
             if (response.success == false) {
@@ -132,15 +129,10 @@ class _HomeState extends State<NamePage> {
               SharedPreferences pref = await SharedPreferences.getInstance();
               pref.setString(PrefString.loggedIn, 'loggedIn');
               pref.setString(PrefString.address, '');
-              pref.setString(
-                  PrefString.status, response.data!.user!.status.toString());
+              pref.setString(PrefString.status, response.data!.user!.status.toString());
               pref.setString(PrefString.token, response.data!.token.toString());
-              pref.setString(
-                  PrefString.id, response.data!.user!.id!.toString());
-
-              pref.setString(
-                  PrefString.name, response.data!.user!.name.toString());
-
+              pref.setString(PrefString.id, response.data!.user!.id!.toString());
+              pref.setString(PrefString.name, response.data!.user!.name.toString());
               pref.setString(PrefString.countryCode, countryCode.toString());
               pref.setString(PrefString.devicetype, ' ');
             } else {
